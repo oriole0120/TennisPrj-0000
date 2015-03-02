@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.htmtennis.prj.dao.PhotoDao">
+	
+	<select id="getPhoto" 
+		parameterType="String" 
+		resultType="com.htmtennis.prj.model.Photo">
+		SELECT * FROM PHOTOBOARDS WHERE CODE = #{code}; 
+	</select>
+	
+	<select id="prevPhoto" 
+		parameterType="String" 
+		resultType="com.htmtennis.prj.model.Photo">
+		SELECT TOP 1 * FROM PHOTOBOARDS 
+				WHERE REGDATE &gt; (SELECT REGDATE FROM PHOTOBOARDS WHERE CODE = #{code}) 
+				ORDER BY REGDATE ASC;
+	</select>
+	
+	<select id="nextPhoto" 
+		parameterType="String" 
+		resultType="com.htmtennis.prj.model.Photo">
+		SELECT TOP 1 * FROM PHOTOBOARDS 
+				WHERE REGDATE &lt; (SELECT REGDATE FROM PHOTOBOARDS WHERE CODE = #{code}) 
+				ORDER BY REGDATE DESC;	
+	</select>
+	
+	<select id="getPhotos">
+		SELECT N.* FROM ( 
+			SELECT ( 
+				ROW_NUMBER() OVER (ORDER BY REGDATE DESC)
+			) NUM, PHOTOBOARDS.* FROM PHOTOBOARDS WHERE ${param3} LIKE #{param2} 
+		) N 
+		WHERE N.NUM BETWEEN 1+(#{param1}-1)*20 AND 20+(#{param1}-1)*20;
+	</select>
+	
+	<!-- <insert id="insert">
+		SELECT ISNULL(MAX(CAST(CODE AS INT)), 0)+1 CODE FROM PHOTOBOARDS
+		INSERT INTO PHOTOBOARDS(CODE, WRITER, REGDATE, TITLE, CONTENTS, HIT, THUMB, AUTHORITY) 
+				VALUES(?, ?, Getdate(), ?, ?, 0, 0, 'B')
+	</insert> -->
+	
+	<update id="update"	
+		parameterType="com.htmtennis.prj.model.Photo">
+		UPDATE PHOTOBOARDS SET TITLE=#{title}, CONTENTS=#{contents} WHERE CODE=#{code};
+	</update>
+	
+	<delete id="delete"
+		parameterType="String">
+		DELETE FROM PHOTOBOARDS WHERE CODE = #{code};
+	</delete>
+	
+	<select id="getSize"  
+		resultType="int">
+		SELECT COUNT(*) CNT FROM PHOTOBOARDS WHERE ${param2} LIKE #{param1};
+	</select>
+		
+	<select id="lastCode"
+		resultType="String">
+		SELECT ISNULL(MAX(CAST(CODE AS INT)), 0) Code  FROM PHOTOBOARDS;
+	</select>
+	
+</mapper>
