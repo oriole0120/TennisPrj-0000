@@ -50,7 +50,7 @@
 {
     width: 64px;
     height: 23px;
-    background: url("../images/btn-list.png") no-repeat center;
+    /* background: url("../images/btn-list.png") no-repeat center; */
 }
 
 .text-highlight
@@ -61,5 +61,5 @@
 
 #contents
 {
-    background: #000000;
+    background: #ffffff;
 }

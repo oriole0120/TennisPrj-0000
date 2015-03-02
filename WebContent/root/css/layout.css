@@ -1,4 +1,4 @@
-﻿.content-wrapper
+.content-wrapper
 {
     /*width:1200px;*/
     height:inherit;
@@ -78,7 +78,7 @@
 
 #main
 {
-    background: #272727;
+    background: #ffffff;
     min-height: inherit;
     width: 830px;
     float: left;
