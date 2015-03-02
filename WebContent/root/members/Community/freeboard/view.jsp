@@ -1,4 +1,17 @@
-﻿<!DOCTYPE html>
+﻿
+<%@page import="com.htmtennis.prj.dao.jdbc.JdbcFreeDao"%>
+<%@page import="com.htmtennis.prj.model.Free"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%	
+	String _code = request.getParameter("c");
+	Free fr = new JdbcFreeDao().getFree(_code);
+	pageContext.setAttribute("fr", fr);
+		
+%>
+
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -109,28 +122,26 @@
                         <article class="detail space-top-l">
                             <dl>
                                 <dt class="detail-cell detail-cell-title detail-cell-break">제목</dt>
-                                <dd class="detail-cell text-highlight">2015년 첫 테니스~!</dd>
+                                <dd class="detail-cell text-highlight">${fr.title}</dd>
 
                                 <dt class="detail-cell detail-cell-title detail-cell-break">작성일</dt>
-                                <dd class="detail-cell">2015-02-01</dd>
+                                <dd class="detail-cell">${fr.regdate}</dd>
 
                                 <dt class="detail-cell detail-cell-title detail-cell-break">작성자</dt>
-                                <dd class="detail-cell detail-cell-half">페더러</dd>
+                                <dd class="detail-cell detail-cell-half">${fr.writer}</dd>
 
                                 <dt class="detail-cell detail-cell-title ">조회수</dt>
-                                <dd class="detail-cell detail-cell-half">50</dd>
+                                <dd class="detail-cell detail-cell-half">${fr.hit}</dd>
 
                                 <dt class="detail-cell detail-cell-title ">추천</dt>
-                                <dd class="detail-cell detail-cell-half">77</dd>
+                                <dd class="detail-cell detail-cell-half">${fr.thumb}</dd>
 
                                 <dt class="detail-cell detail-cell-title ">첨부파일</dt>
                                 <dd class="detail-cell detail-cell-half"></dd>
 
                                 <dt class="hidden">내용</dt>
                                 <dd class="detail-cell-content detail-cell-break">
-                                    2015년 첫 테니스를 쳤습니다.<br />
-                                    간만에 쳐도 재밌네요ㅎㅎ<br />
-                                    모두들 즐테하시기 바랍니다^^<br />
+                                   ${fr.contents}
                                 </dd>
                             </dl>
                             <div id="space-top">

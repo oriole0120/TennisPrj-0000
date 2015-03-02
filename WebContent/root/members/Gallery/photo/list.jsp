@@ -135,7 +135,7 @@
                         <tbody>
                             <tr class="table-list-row">
                             
-                            
+                            	<!-- 글개수만큼 리스트를 갱신 -->
 	                            <c:forEach var="ph"  items="${list}">
 	                            	<td class="table-cell">
 	                                    <table>
