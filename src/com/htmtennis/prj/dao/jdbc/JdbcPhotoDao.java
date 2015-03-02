@@ -1,4 +1,4 @@
-/*package com.htmtennis.prj.dao.jdbc;
+package com.htmtennis.prj.dao.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,7 +27,6 @@ public class JdbcPhotoDao implements PhotoDao {
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery(sql);
 
-			//모델마련하기		
 			rs.next();
 		
 			Photo ph = new Photo();
@@ -35,7 +34,7 @@ public class JdbcPhotoDao implements PhotoDao {
 			ph.setWriter(rs.getString("WRITER"));
 			ph.setRegdate(rs.getDate("REGDATE"));
 			ph.setTitle(rs.getString("TITLE"));
-			ph.setContent(rs.getString("CONTENT"));
+			ph.setContent(rs.getString("CONTENTS"));
 			ph.setHit(rs.getInt("HIT"));
 			ph.setThumb(rs.getInt("THUMB"));
 			ph.setAuthority(rs.getString("AUTORITY"));
@@ -43,6 +42,7 @@ public class JdbcPhotoDao implements PhotoDao {
 			rs.close();
 			st.close();
 			con.close();
+			
 			return ph;
 			
 		} catch (ClassNotFoundException e) {
@@ -390,4 +390,3 @@ public class JdbcPhotoDao implements PhotoDao {
 		return null;
 	}
 }
-*/

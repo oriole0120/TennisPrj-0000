@@ -1,4 +1,17 @@
-﻿<!DOCTYPE html>
+﻿
+<%@page import="com.htmtennis.prj.dao.jdbc.JdbcPhotoDao"%>
+<%@page import="com.htmtennis.prj.model.Photo"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%	
+	String _code = request.getParameter("c");
+	Photo ph = new JdbcPhotoDao().getPhoto(_code);
+	pageContext.setAttribute("ph", ph);
+		
+%>
+
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -152,10 +165,24 @@
                         </div>
 
                         <div class="detail">
-                            <ul>
-                                <li class="solid-line-2 text-center">
+                            <dl>
+                            	<dt class="detail-cell title newrow">제목</dt>
+		                        <dd class="detail-cell text-highlight">${ph.title}</dd>
+		                        <dt class="detail-cell title newrow">작성일</dt>
+		                        <dd class="detail-cell">${ph.regdate}</dd>
+		                        <dt class="detail-cell title newrow">작성자</dt>
+		                        <dd class="detail-cell half-cell">${ph.writer}</dd>
+		                        <dt class="detail-cell title">조회수</dt>
+		                        <dd class="detail-cell half-cell">${ph.hit}</dd>
+		                        <dt class="detail-cell title newrow">첨부파일</dt>
+		                        <dd class="detail-cell"></dd>
+		                        <dt class="hidden">내용</dt>
+		                        <dd class="content newrow">${ph.contents}</dd>
+                            </dl>
+                            
+                                <!-- <dd class="solid-line-2 text-center">
                                     2015년 새로운 공지
-                                </li>
+                                </dd>
                                 <li class="detail-float-left">
                                     2015-02-11
                                 </li>
@@ -167,11 +194,10 @@
                                 </li>
                                 <li class="solid-line-2 detail-text-area text-center">
                                     글본문 영역
-                                </li>
-                            </ul>
+                                </li> -->
 
                             <p class="space-top text-center">
-                                <a class="btn btn-list" href="list.html">목록버튼</a>
+                                <a class="btn btn-list" href="list.jsp">목록버튼</a>
                             </p>
 
                         </div>

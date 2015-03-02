@@ -1,4 +1,4 @@
-﻿<%-- <%@page import="java.util.List"%>
+﻿<%@page import="java.util.List"%>
 <%@page import="com.htmtennis.prj.dao.jdbc.JdbcPhotoDao"%>
 <%@page import="com.htmtennis.prj.dao.PhotoDao"%>
 <%@page import="com.htmtennis.prj.model.Photo"%>
@@ -135,6 +135,7 @@
                         <tbody>
                             <tr class="table-list-row">
                             
+                            
 	                            <c:forEach var="ph"  items="${list}">
 	                            	<td class="table-cell">
 	                                    <table>
@@ -146,12 +147,13 @@
 	                                            </tr>
 	                                            <tr class="cell-margin"></tr>
 	                                            <tr>
-	                                                <td><a class="cell-title" href="view.jsp?c=${ph.code}">${ph.writer}</a></td>
+	                                                <td><a class="cell-title" href="view.jsp?c=${ph.code}">${ph.title}</a></td>
 	                                            </tr>
 	                                        </tbody>
 	                                    </table>
 	                                </td>
 	                            </c:forEach>
+
 
                             </tr>
                         </tbody>
@@ -204,4 +206,3 @@
 
 </body>
 </html>
- --%>
