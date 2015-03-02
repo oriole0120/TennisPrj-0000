@@ -11,6 +11,7 @@ import java.util.List;
 
 import com.htmtennis.prj.dao.FreeDao;
 import com.htmtennis.prj.model.Free;
+import com.htmtennis.prj.model.Photo;
 
 public class JdbcFreeDao implements FreeDao {
 
@@ -30,18 +31,20 @@ public class JdbcFreeDao implements FreeDao {
 			//모델마련하기		
 			rs.next();
 		
-			Free b = new Free();
-			b.setCode(rs.getString("CODE"));
-			b.setTitle(rs.getString("TITLE"));
-			b.setWriter(rs.getString("WRITER"));
-			b.setRegdate(rs.getDate("REGDATE"));
-			b.setHit(rs.getInt("HIT"));
-			b.setContent(rs.getString("CONTENT"));
+			Free fr = new Free();
+			fr.setCode(rs.getString("CODE"));
+			fr.setWriter(rs.getString("WRITER"));
+			fr.setRegdate(rs.getDate("REGDATE"));
+			fr.setTitle(rs.getString("TITLE"));
+			fr.setContent(rs.getString("CONTENTS"));
+			fr.setHit(rs.getInt("HIT"));
+			fr.setThumb(rs.getInt("THUMB"));
+			fr.setAuthority(rs.getString("AUTORITY"));
 					
 			rs.close();
 			st.close();
 			con.close();
-			return b;
+			return fr;
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -60,11 +63,9 @@ public class JdbcFreeDao implements FreeDao {
 		int end 	= 20+(page-1)*20;	//page*20;
 		
 		String sql = "SELECT N.* FROM ( "
-						+" SELECT ( ROW_NUMBER() OVER (ORDER BY REGDATE DESC) ) NUM, FREEBOARDS.* "
-						+" FROM FREEBOARDS WHERE "+ field +" LIKE ? ) N "
-						+" WHERE N.NUM BETWEEN ? AND ?";
-
-		
+				+" SELECT ( ROW_NUMBER() OVER (ORDER BY REGDATE DESC) ) NUM, FREEBOARDS.* "
+				+" FROM FREEBOARDS WHERE "+ field +" LIKE ? ) N "
+				+" WHERE N.NUM BETWEEN ? AND ?";
 		String url = "jdbc:sqlserver://win.newlecture.com:1433;databaseName=tennisdb";
 		
 		try {
@@ -73,28 +74,25 @@ public class JdbcFreeDao implements FreeDao {
 			Connection con = DriverManager.getConnection(url, "tennis", "tennis89");
 			PreparedStatement st = con.prepareStatement(sql);
 			
-			//st.setString(1,field);라고 넣으면 'field'라고 들어가므로 sql 직접 넣어준다 
-			
 			st.setString(1, "%"+ query +"%");
 			st.setInt(2, start);
 			st.setInt(3, end);
 			
 			ResultSet rs = st.executeQuery();
-
 			List<Free> list = new ArrayList<Free>();
 			
-			//모델마련하기		
-			while(rs.next()){
-		
-				Free b = new Free();
-				b.setCode(rs.getString("CODE"));
-				b.setTitle(rs.getString("TITLE"));
-				b.setWriter(rs.getString("WRITER"));
-				b.setRegdate(rs.getDate("REGDATE"));
-				b.setHit(rs.getInt("HIT"));
-				b.setContent(rs.getString("CONTENT"));
-			
-				list.add(b);
+			while(rs.next()) {
+				Free fr = new Free();
+				fr.setCode(rs.getString("CODE"));
+				fr.setWriter(rs.getString("WRITER"));
+				fr.setRegdate(rs.getDate("REGDATE"));
+				fr.setTitle(rs.getString("TITLE"));
+				fr.setContent(rs.getString("CONTENTS"));
+				fr.setHit(rs.getInt("HIT"));
+				fr.setThumb(rs.getInt("THUMB"));
+				fr.setAuthority(rs.getString("AUTHORITY"));
+				
+				list.add(fr);
 			}
 			
 			rs.close();
@@ -102,7 +100,6 @@ public class JdbcFreeDao implements FreeDao {
 			con.close();
 			
 			return list;
-			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -321,13 +318,15 @@ public class JdbcFreeDao implements FreeDao {
 
 		rs.next();
 		
-		Free b = new Free();
-		b.setCode(rs.getString("CODE"));
-		b.setTitle(rs.getString("TITLE"));
-		b.setWriter(rs.getString("WRITER"));
-		b.setRegdate(rs.getDate("REGDATE"));
-		b.setHit(rs.getInt("HIT"));
-		b.setContent(rs.getString("CONTENT"));
+		Free fr = new Free();
+		fr.setCode(rs.getString("CODE"));
+		fr.setWriter(rs.getString("WRITER"));
+		fr.setRegdate(rs.getDate("REGDATE"));
+		fr.setTitle(rs.getString("TITLE"));
+		fr.setContent(rs.getString("CONTENTS"));
+		fr.setHit(rs.getInt("HIT"));
+		fr.setThumb(rs.getInt("THUMB"));
+		fr.setAuthority(rs.getString("AUTHORITY"));
 		
 		rs.close();
 		st.close();
@@ -361,13 +360,16 @@ public class JdbcFreeDao implements FreeDao {
 
 		rs.next();
 		
-		Free b = new Free();
-		b.setCode(rs.getString("CODE"));
-		b.setTitle(rs.getString("TITLE"));
-		b.setWriter(rs.getString("WRITER"));
-		b.setRegdate(rs.getDate("REGDATE"));
-		b.setHit(rs.getInt("HIT"));
-		b.setContent(rs.getString("CONTENT"));
+		Free fr = new Free();
+		fr.setCode(rs.getString("CODE"));
+		fr.setWriter(rs.getString("WRITER"));
+		fr.setRegdate(rs.getDate("REGDATE"));
+		fr.setTitle(rs.getString("TITLE"));
+		fr.setContent(rs.getString("CONTENTS"));
+		fr.setHit(rs.getInt("HIT"));
+		fr.setThumb(rs.getInt("THUMB"));
+		fr.setAuthority(rs.getString("AUTHORITY"));
+		
 			
 		rs.close();
 		st.close();

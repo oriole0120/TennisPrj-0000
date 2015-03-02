@@ -12,8 +12,6 @@ public class Free {
 	private int hit;
 	private int thumb;
 	private String authority;
-	
-	
 	public String getCode() {
 		return code;
 	}
@@ -62,6 +60,5 @@ public class Free {
 	public void setAuthority(String authority) {
 		this.authority = authority;
 	}
-	
 	
 }
