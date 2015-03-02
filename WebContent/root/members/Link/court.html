@@ -3,143 +3,159 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-    <link href="reset.css" rel="stylesheet" type="text/css" />
-    <link href="court-layout.css" rel="stylesheet" type="text/css" />
-    <link href="court-style.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="modernizr.js"></script>
+    <link href="css/bind.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/modernizr.js"></script>
 </head>
 
 <body>
     <header id="header">
+        <!--  header part  -->
         <div class="content-wrapper">
-
+            <h1 class="hidden">Header</h1>
             <div class="logo">
-                <h1>
-                    <a href=""><img src="../../images/logo-s.png" alt="동아리로고"></a>
-                    Hansung Tennis Membership
-                </h1>
-
+                <a href=""><img src="../../images/logo_s.png" alt="동아리로고"></a>
+                <p>Hansung Tennis Membership</p>
             </div>
 
-            <section>
-                <!--<h2>머릿말</h2>-->
-
-                <nav>
-                    <!--<h3>메인메뉴</h3>-->
-                    <ul>
-                        <li><a class="main-menu-text" href="">공지</a></li>
-                        <li><a class="main-menu-text" href="">게시판</a></li>
-                        <li><a class="main-menu-text" href="">사진</a></li>
-                        <li><a class="main-menu-text" href="">영상</a></li>
-                        <li><a class="main-menu-text" href="">링크</a></li>
+            <section class="header-item-container">
+                <h2 class="hidden">머릿말</h2>
+                <nav id="member-menu">
+                    <h3 class="hidden">회원메뉴</h3>
+                    <ul class="clearfix">
+                        <li class="member-menu-item"><a class="member-menu-text" href="">홈</a></li>
+                        <li class="member-menu-item"><a class="member-menu-text" href="">로그인</a></li>
+                        <li class="member-menu-item"><a class="member-menu-text" href="">가입</a></li>
                     </ul>
                 </nav>
 
-                <nav>
-                    <!--<h3>회원메뉴</h3>-->
-                    <ul>
-                        <li><a class="member-menu-text" href="">홈</a></li>
-                        <li><a class="member-menu-text" href="">로그인</a></li>
-                        <li><a class="member-menu-text" href="">가입</a></li>
-                    </ul>
-                </nav>
-
-                <div>
-                    <!--<h3>게시글검색폼</h3>-->
+                <nav id="search-form">
+                    <h3 class="hidden">게시글검색폼</h3>
                     <form>
                         <fieldset>
-                            <!--<legend>전체 게시글검색필드</legend>-->
-                            <input class="subject" type="text" />
-                            <input id="total-search-button" type="submit" value="검색" />
+                            <input id="search-input" type="text" />
+                            <input id="search-button" type="submit" value="검색" />
                         </fieldset>
                     </form>
-                </div>
-
+                </nav>
             </section>
+
+            <div class="header-slide-img">
+                <!--  image slide part  -->
+                <img id="slide-img" src="../../images/slide-img01.png" />
+            </div>
 
         </div>
     </header>
 
 
     <div id="body">
-        <div class="content-wrapper">
+        <div class="content-wrapper clearfix">
 
-            <div style="clear:left;"></div>
             <aside id="side">
-                <!--<h2>사이드</h2>-->
+                <!--  aside menu part  -->
+                <!--<h2 class="hidden">Menu</h2>-->
+                <nav id="side-menu">
+                    <ul class="clearfix">
+                        <li class="side-menu-item"><a class="side-menu-text" href="">Notice</a></li>
+                        <li class="side-menu-item"><a class="side-menu-text" href="">Tennis</a></li>
 
-                <nav>
-                    <h3 id="side-title">Link</h3>
-                    <ul>
-                        <li class="side-menu-list"><a href="court.html">Court</a></li>
-                        <li class="side-menu-list"><a href="shop.html">Shop</a></li>
-                        <li class="side-menu-list"><a href="siteInfo.html">Site</a></li>
+                        <li class="side-menu-item">
+                            <a class="side-menu-text" href="">Community</a>
+                            <ul>
+                                <li class="side-menu-detail"><a class="side-menu-text" href="">Free</a>
+                                <li class="side-menu-detail"><a class="side-menu-text" href="">Info</a>
+                            </ul>
+                        </li>
+
+                        <li class="side-menu-item">
+                            <a class="side-menu-text" href="">Gallery</a>
+                            <ul>
+                                <li class="side-menu-detail"><a class="side-menu-text" href="">Photo</a>
+                                <li class="side-menu-detail"><a class="side-menu-text" href="">Video</a>
+                            </ul>
+                        </li>
+
+                        <li class="side-menu-item"><a class="side-menu-text" href="">Schedule</a></li>
+                        <li class="side-menu-item"><a class="side-menu-text" href="">Link</a></li>
                     </ul>
                 </nav>
+
             </aside>
+
 
             <main id="main">
                 <h2 id="main-title">Link</h2>
-                                <div id="court-main">
-                                    <a class="court"href=""><img src="../../images/link-map.jpg" width="500" height="250" alt="맵"></a>
-                                    <div id="search-form">
-                                        <!--<h3>영상게시물 검색폼</h3>-->
-                                       
-                                        <form>
-                                            <fieldset>
-                                                <a>지도를 클릭하시면 서울 및 지역구별 검색을 할수 있습니다</a>
-                                                <input class="search" type="text" name="query" />
-                                                <input class="search" type="submit" value="검색" />
-                                            </fieldset>
-                                        </form>
-                                    </div>
-                                    <table width="500" height="150" style="table-layout:fixed">
+                <!--<div class="breadcrumb">
+                    <h3 class="hidden">현재경로</h3>
+                    <ul>
+                        <li class="breadcrumb-item breadcrumb-item-size">Home</li>
+                        <li class="breadcrumb-item breadcrumb-item-size">Link</li>
+                        <li class="breadcrumb-item breadcrumb-item-size">Court</li>
+                    </ul>
+                </div>-->
+                <div class="text-center main-item">
+                    <a href=""><img src="../../images/link-map.jpg" width="500" height="250" alt="맵"></a>
+                </div>
 
-                                        <tr>
-                                            <th class="center"><a href="">이름</a></th>
-                                            <th class="center"><a href="">주소</a></th>
-                                        </tr>
+                <div class="text-center main-item">
+                    <div class="wrapper">
+                        <h3 class="hidden">링크게시물 검색폼</h3>
+                        <form>
+                            <fieldset>
+                                <a>지도를 클릭하시면 서울 및 지역구별 검색을 할수 있습니다</a>
+                                <input class="input-normal" type="text" name="query" />
+                                <input class="btn btn-search" type="submit" value="검색" />
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <div class="board">
+                    <table class="board-table text-center">
+                        <thead>
+                            <tr class="board-row">
+                                <th class="board-cell-th board-cell-width-60  text-center">번호</th>
+                                <th class="board-cell-th board-cell-width-160  text-center">이름</th>
+                                <th class="board-cell-th board-cell-width-300  text-center">주소</th>
+                                <th class="board-cell-th board-cell-width-100  text-center">전화번호</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="board-row">
+                                <th class="board-cell board-cell-width-60  text-center">1</th>
+                                <th class="board-cell board-cell-width-160  text-center"><a href="courtDetail.html">목동 테니스장</a></th>
+                                <th class="board-cell board-cell-width-300  text-center">서울특별시 양천구 목동</th>
+                                <th class="board-cell board-cell-width-100  text-center">02-424-8548</th>
+                            </tr>
+                            <tr class="board-row">
+                                <th class="board-cell board-cell-width-60  text-center">2</th>
+                                <th class="board-cell board-cell-width-160  text-center"><a href="courtDetail.html">양천해누리 체육공원</a></th>
+                                <th class="board-cell board-cell-width-300  text-center">서울특별시 양천구 신정동</th>
+                                <th class="board-cell board-cell-width-100  text-center">02-468-2234</th>
+                            </tr>
+                            <tr class="board-row">
+                                <th class="board-cell board-cell-width-60  text-center">3</th>
+                                <th class="board-cell board-cell-width-120  text-center"><a href="courtDetail.html">양천공원 테니스장</a></th>
+                                <th class="board-cell board-cell-width-300  text-center">서울특별시 양천구 신정동</th>
+                                <th class="board-cell board-cell-width-100  text-center">02-856-6448</th>
 
-                                        <tr>
-                                            <th class="center1"><a href="courtDetail.html">목동 테니스장</a></th>
-                                            <th class="center1"><a href="courtDetail.html">서울특별시 양천구 목동</a></th>
-                                        </tr>
-                                        <tr>
-                                            <th class="center1"><a href="courtDetail.html">양천해누리 체육공원</a></th>
-                                            <th class="center1"><a href="courtDetail.html">서울특별시 양천구 신정동</a></th>
-                                        </tr>
-                                        <tr>
-                                            <th class="center1"><a href="courtDetail.html">양천공원 테니스장</a></th>
-                                            <th class="center1"><a href="courtDetail.html">서울특별시 양천구 신정동</a></th>
-
-                                        </tr>
-                                        <tr>
-                                            <th class="center1"><a href="courtDetail.html">양천해누리 체육공원</a></th>
-                                            <th class="center1"><a href="courtDetail.html">서울 특별시 양천구 신정동</a></th>
-                                        </tr>
-                                        <tr>
-                                            <th class="center1"><a href="courtDetail.html">용왕산공원 테니스장</a></th>
-                                            <th class="center1"><a href="courtDetail.html">서울 특별시 양천구 신정동</a></th>
-                                        </tr>
-
-                                    </table>
-                                </div>
-                      
+                            </tr>
+                            <tr class="board-row">
+                                <th class="board-cell board-cell-width-60  text-center">4</th>
+                                <th class="board-cell board-cell-width-160  text-center"><a href="courtDetail.html">양천해누리 체육공원</a></th>
+                                <th class="board-cell board-cell-width-300  text-center">서울 특별시 양천구 신정동</th>
+                                <th class="board-cell board-cell-width-100  text-center">02-745-1234</th>
+                            </tr>
+                            <tr class="board-row">
+                                <th class="board-cell board-cell-width-60  text-center">5</th>
+                                <th class="board-cell board-cell-width-160  text-center"><a href="courtDetail.html">용왕산공원 테니스장</a></th>
+                                <th class="board-cell board-cell-width-300  text-center">서울 특별시 양천구 신정동</th>
+                                <th class="board-cell board-cell-width-100  text-center">02-226-8998</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
             </main>
-
-            <aside id="quick">
-                <h2 id="quick-title">퀵메뉴</h2>
-
-                <nav>
-                    <!--<h3>자주가는메뉴</h3>-->
-                    <ul>
-                        <li>홈</li>
-                        <li>검색</li>
-                        <li>링크</li>
-                    </ul>
-                </nav>
-            </aside>
 
 
         </div>
@@ -148,33 +164,38 @@
 
 
     <footer id="footer">
-        <div class="content-wrapper">
+        <!--  footer part  -->
+        <div class="content-wrapper clearfix">
 
-            <div>
-                <h2>하단 정보파트(footer)</h2>
+            <div id="logo-footer-container">
+                <h2><img src="../../images/logo_m.png" alt="동아리정보" /></h2>
+            </div>
 
-                <!--<div>
-                    <h3>동아리정보</h3>
-                    <dl>
-                        <dt>주소</dt>
-                        <dd>서울시 @@@@</dd>
-                        <dt>관리자메일</dt>
-                        <dd>admin@@@@</dd>
-                        <dt>회장단</dt>
-                        <dd>####</dd>
-                        <dt>동아리 이름</dt>
-                        <dd>HTM</dd>
+            <div id="company-info-container">
+                <div id="company-info">
+                    <h3 class="hidden">동아리정보</h3>
+                    <dl class="clearfix">
+                        <dt class="company-info-item item-title item-newline"> 주소</dt>
+                        <dd class="company-info-item item-data">서울특별시 성북구 삼선교로 16길 116</dd>
+                        <dt class="company-info-item item-title">연락처</dt>
+                        <dd class="company-info-item item-data">02-760-5528</dd>
+
+                        <dt class="company-info-item item-title item-newline">관리자메일</dt>
+                        <dd class="company-info-item item-data">oriole0120@naver.com</dd>
+                        <dt class="company-info-item item-title">회장</dt>
+                        <dd class="company-info-item item-data">###</dd>
+                        <dt class="company-info-item item-title">HTM</dt>
+                        <dd class="company-info-item item-data">[Hansung Tennis Membership]</dd>
                     </dl>
                 </div>
 
-                <div>
-                    <h3>저작권정보</h3>
-                    <p>Copyright #$@#$#@</p>
-                </div>-->
-
+                <div id="copyright">
+                    <h3 class="hidden">저작권정보</h3>
+                    <p>Copyright@chanCompany 2015</p>
+                </div>
             </div>
-
         </div>
+
     </footer>
 
 </body>
