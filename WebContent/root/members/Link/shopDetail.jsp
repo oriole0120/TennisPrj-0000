@@ -90,14 +90,16 @@
 
                 <div class="text-center space-top">
                     <div class="wrapper">
-                        <!--<h3>영상게시물 검색폼</h3>-->
-                        <form>
-                            <fieldset>
-                                <a>지도를 클릭하시면 서울 및 지역구별 검색을 할수 있습니다</a>
-                                <input class="input-normal" type="text" name="query" />
-                                <input class="btn btn-search" type="submit" value="검색" />
-                            </fieldset>
-                        </form>
+                        <div class="main-item">
+                            <!--<h3>영상게시물 검색폼</h3>-->
+                            <form>
+                                <fieldset>
+                                    <a>지도를 클릭하시면 서울 및 지역구별 검색을 할수 있습니다</a>
+                                    <input class="input-normal" type="text" name="query" />
+                                    <input class="btn btn-search" type="submit" value="검색" />
+                                </fieldset>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -108,7 +110,7 @@
                                 <th class="board-cell-thd board-cell-width-60d  text-center"><a href="">번호</a></th>
                                 <th class="board-cell-thd board-cell-width-100d  text-center"><a href="">이름</a></th>
                                 <th class="board-cell-thd board-cell-width-300d  text-center"><a href="">주소</a></th>
-                                <th class="board-cell-thd board-cell-width-100d  text-center"><a href="">전화번호</a></th>
+                                <th class="board-cell-thd board-cell-width-160d  text-center"><a href="">전화번호</a></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -116,7 +118,7 @@
                                 <th class="board-celld board-cell-width-60d"><a href="">1</a></th>
                                 <th class="board-celld board-cell-width-100d"><a href="">테니스메트로</a></th>
                                 <th class="board-celld board-cell-width-300d"><a href="">서울특별시 중구 광희동1가</a></th>
-                                <th class="board-celld board-cell-width-100d"><a href="">02-2266-0589</a></th>
+                                <th class="board-celld board-cell-width-160d"><a href="">02-2266-0589</a></th>
                             </tr>
                         </tbody>
 

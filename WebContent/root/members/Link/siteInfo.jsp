@@ -84,75 +84,33 @@
 
 
             <main id="main">
-                <h2 id="main-title">Link</h2>
-                <!--<div class="breadcrumb">
-                    <h3 class="hidden">현재경로</h3>
-                    <ul>
-                        <li class="breadcrumb-item breadcrumb-item-size">Home</li>
-                        <li class="breadcrumb-item breadcrumb-item-size">Link</li>
-                        <li class="breadcrumb-item breadcrumb-item-size">Court</li>
-                    </ul>
-                </div>-->
-                <div class="text-center main-item">
-                    <a href=""><img src="../../images/link-map.jpg" width="500" height="250" alt="맵"></a>
+                <div id="main-title-bar">
+                    <p> >>Link </p>
                 </div>
 
-                <div class="text-center main-item">
-                    <div class="wrapper">
-                        <h3 class="hidden">링크게시물 검색폼</h3>
-                        <form>
-                            <fieldset>
-                                <a>지도를 클릭하시면 서울 및 지역구별 검색을 할수 있습니다</a>
-                                <input class="input-normal" type="text" name="query" />
-                                <input class="btn btn-search" type="submit" value="검색" />
-                            </fieldset>
-                        </form>
+                <h2 id="main-title">Site</h2>
+
+
+                <div class="container">
+                    <div class="outer">
+                        <div class="inner">
+                            <div clss="centered">
+
+                                <nav>
+
+                                    <ul>
+                                        
+                                        <li class="faceshop"><a href="siteInfo.html" class="main-title-item"><img src="images/site1.png" width="150" height="150" alt="시설" /></a></li>
+                                        <li class="faceshop"><a href="siteInfo.html" class="main-title-item"><img src="images/site2.png" width="150" height="150" alt="장비" /></a></li>
+                                        <li class="faceshop"><a href="siteInfo.html" class="main-title-item"><img src="images/site3.png" width="150" height="150" alt="사이트" /></a></li>
+                                        <li class="faceshop"><a href="siteInfo.html" class="main-title-item"><img src="images/site4.png" width="150" height="150" alt="사이트" /></a></li>
+                                    </ul>
+                                </nav>
+                                
+                                 
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="board">
-                    <table class="board-table text-center">
-                        <thead>
-                            <tr class="board-row">
-                                <th class="board-cell-th board-cell-width-60  text-center">번호</th>
-                                <th class="board-cell-th board-cell-width-160  text-center">이름</th>
-                                <th class="board-cell-th board-cell-width-300  text-center">주소</th>
-                                <th class="board-cell-th board-cell-width-100  text-center">전화번호</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="board-row">
-                                <th class="board-cell board-cell-width-60  text-center">1</th>
-                                <th class="board-cell board-cell-width-160  text-center"><a href="courtDetail.html">목동 테니스장</a></th>
-                                <th class="board-cell board-cell-width-300  text-center">서울특별시 양천구 목동</th>
-                                <th class="board-cell board-cell-width-100  text-center">02-424-8548</th>
-                            </tr>
-                            <tr class="board-row">
-                                <th class="board-cell board-cell-width-60  text-center">2</th>
-                                <th class="board-cell board-cell-width-160  text-center"><a href="courtDetail.html">양천해누리 체육공원</a></th>
-                                <th class="board-cell board-cell-width-300  text-center">서울특별시 양천구 신정동</th>
-                                <th class="board-cell board-cell-width-100  text-center">02-468-2234</th>
-                            </tr>
-                            <tr class="board-row">
-                                <th class="board-cell board-cell-width-60  text-center">3</th>
-                                <th class="board-cell board-cell-width-120  text-center"><a href="courtDetail.html">양천공원 테니스장</a></th>
-                                <th class="board-cell board-cell-width-300  text-center">서울특별시 양천구 신정동</th>
-                                <th class="board-cell board-cell-width-100  text-center">02-856-6448</th>
-
-                            </tr>
-                            <tr class="board-row">
-                                <th class="board-cell board-cell-width-60  text-center">4</th>
-                                <th class="board-cell board-cell-width-160  text-center"><a href="courtDetail.html">양천해누리 체육공원</a></th>
-                                <th class="board-cell board-cell-width-300  text-center">서울 특별시 양천구 신정동</th>
-                                <th class="board-cell board-cell-width-100  text-center">02-745-1234</th>
-                            </tr>
-                            <tr class="board-row">
-                                <th class="board-cell board-cell-width-60  text-center">5</th>
-                                <th class="board-cell board-cell-width-160  text-center"><a href="courtDetail.html">용왕산공원 테니스장</a></th>
-                                <th class="board-cell board-cell-width-300  text-center">서울 특별시 양천구 신정동</th>
-                                <th class="board-cell board-cell-width-100  text-center">02-226-8998</th>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
 
             </main>
