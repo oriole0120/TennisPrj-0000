@@ -9,15 +9,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.htmtennis.prj.dao.InfomationDao;
+import com.htmtennis.prj.dao.InformationDao;
 import com.htmtennis.prj.model.Free;
-import com.htmtennis.prj.model.Infomation;
+import com.htmtennis.prj.model.Information;
 
-public class JdbcInfomationDao implements InfomationDao {
+public class JdbcInformationDao implements InformationDao {
 
 	@Override
-	public Infomation getInfomation(String code) {
-		String sql = "SELECT * FROM INFOBOARDS WHERE CODE = '" + code + "' ";
+	public Information getInformation(String code) {
+		String sql = "SELECT * FROM INFORMATIONBOARDS WHERE CODE = '" + code + "' ";
 		String url = "jdbc:sqlserver://win.newlecture.com:1433;databaseName=tennisdb";
 
 		try {
@@ -31,19 +31,19 @@ public class JdbcInfomationDao implements InfomationDao {
 			// 모델마련하기
 			rs.next();
 
-			Informat Inf = new Information();
-			if.setCode(rs.getString("CODE"));
-			if.setWriter(rs.getString("WRITER"));
-			if.setRegdate(rs.getDate("REGDATE"));
-			if.setTitle(rs.getString("TITLE"));
-			if.setContent(rs.getString("CONTENTS"));
-			if.setHit(rs.getInt("HIT"));
-			if.setAuthority(rs.getString( "AUTORITY"));
+			Information inf = new Information();
+			inf.setCode(rs.getString("CODE"));
+			inf.setWriter(rs.getString("WRITER"));
+			inf.setRegdate(rs.getDate("REGDATE"));
+			inf.setTitle(rs.getString("TITLE"));
+			inf.setContents(rs.getString("CONTENTS"));
+			inf.setHit(rs.getInt("HIT"));
+			inf.setAuthority(rs.getString( "AUTHORITY"));
 
 			rs.close();
 			st.close();
 			con.close();
-			return if;
+			return inf;
 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -56,14 +56,18 @@ public class JdbcInfomationDao implements InfomationDao {
 	}
 
 	@Override
-	public List<Infomation> getInfomations(int page, String query, String field) {
+	public List<Information> getInformations(int page, String query, String field) {
 		int start = 1 + (page - 1) * 20; // (page-1)*20+1;
 		int end = 20 + (page - 1) * 20; // page*20;
 
 		String sql = "SELECT N.* FROM ( "
-				+ " SELECT ( ROW_NUMBER() OVER (ORDER BY REGDATE DESC) ) NUM, INFOBOARDS.* "
-				+ " FROM INFOBOARDS WHERE " + field + " LIKE ? ) N "
+				+ " SELECT ( ROW_NUMBER() OVER (ORDER BY REGDATE DESC) ) NUM, INFORMATIONBOARDS.* "
+				+ " FROM INFORMATIONBOARDS WHERE " + field + " LIKE ? ) N "
 				+ " WHERE N.NUM BETWEEN ? AND ?";
+		/*String sql = "SELECT N.* FROM ( "
+				+" SELECT ( ROW_NUMBER() OVER (ORDER BY REGDATE DESC) ) NUM, FREEBOARDS.* "
+				+" FROM FREEBOARDS WHERE "+ field +" LIKE ? ) N "
+				+" WHERE N.NUM BETWEEN ? AND ?";*/
 
 		String url = "jdbc:sqlserver://win.newlecture.com:1433;databaseName=tennisdb";
 
@@ -81,20 +85,21 @@ public class JdbcInfomationDao implements InfomationDao {
 
 			ResultSet rs = st.executeQuery();
 
-			List<Infomation> list = new ArrayList<Infomation>();
+			List<Information> list = new ArrayList<Information>();
 
 			// 모델마련하기
 			while (rs.next()) {
 
-				Infomation b = new Infomation();
-				b.setCode(rs.getString("CODE"));
-				b.setTitle(rs.getString("TITLE"));
-				b.setWriter(rs.getString("WRITER"));
-				b.setRegdate(rs.getDate("REGDATE"));
-				b.setHit(rs.getInt("HIT"));
-				b.setContent(rs.getString("CONTENT"));
+				Information inf = new Information();
+				inf.setCode(rs.getString("CODE"));
+				inf.setWriter(rs.getString("WRITER"));
+				inf.setRegdate(rs.getDate("REGDATE"));
+				inf.setTitle(rs.getString("TITLE"));
+				inf.setContents(rs.getString("CONTENTS"));
+				inf.setHit(rs.getInt("HIT"));
+				inf.setAuthority(rs.getString( "AUTHORITY"));
 
-				list.add(b);
+				list.add(inf);
 			}
 
 			rs.close();
@@ -114,21 +119,21 @@ public class JdbcInfomationDao implements InfomationDao {
 	}
 
 	@Override
-	public List<Infomation> getInfomations(int page, String query) {
+	public List<Information> getInformations(int page, String query) {
 
-		return getInfomations(page, query, "Title");
+		return getInformations(page, query, "Title");
 	}
 
 	@Override
-	public List<Infomation> getInfomations(int page) {
+	public List<Information> getInformations(int page) {
 
-		return getInfomations(page, "");
+		return getInformations(page, "");
 	}
 
 	@Override
-	public int insert(Infomation Infomation) {
-		String sql1 = "SELECT ISNULL(MAX(CAST(CODE AS INT)), 0)+1 CODE FROM INFOBOARDS";
-		String sql = "INSERT INTO INFOBOARDS(CODE, TITLE, WRITER, CONTENT, REGDATE, HIT) VALUES(?,?,?,?,Getdate(), 0)";
+	public int insert(Information Information) {
+		String sql1 = "SELECT ISNULL(MAX(CAST(CODE AS INT)), 0)+1 CODE FROM INFORMATIONBOARDS";
+		String sql = "INSERT INTO INFORMATIONBOARDS(CODE, TITLE, WRITER, CONTENT, REGDATE, HIT) VALUES(?,?,?,?,Getdate(), 0)";
 		String url = "jdbc:sqlserver://win.newlecture.com:1433;databaseName=tennisdb";
 
 		try {
@@ -147,9 +152,9 @@ public class JdbcInfomationDao implements InfomationDao {
 			PreparedStatement st = con.prepareStatement(sql);
 
 			st.setString(1, code);
-			st.setString(2, Infomation.getTitle());
-			st.setString(3, Infomation.getWriter());
-			st.setString(4, Infomation.getContent());
+			st.setString(2, Information.getTitle());
+			st.setString(3, Information.getWriter());
+			st.setString(4, Information.getContents());
 
 			int result = st.executeUpdate(); // 실행했을때 영향받는 row 수
 
@@ -170,8 +175,8 @@ public class JdbcInfomationDao implements InfomationDao {
 	}
 
 	@Override
-	public int update(Infomation Infomation) {
-		String sql = "UPDATE INFOBOARDS SET TITLE=?, CONTENT=? WHERE CODE=?";
+	public int update(Information Information) {
+		String sql = "UPDATE INFORMATIONBOARDS SET TITLE=?, CONTENT=? WHERE CODE=?";
 		String url = "jdbc:sqlserver://win.newlecture.com:1433;databaseName=tennisdb";
 
 		try {
@@ -180,9 +185,9 @@ public class JdbcInfomationDao implements InfomationDao {
 			Connection con = DriverManager.getConnection(url, "tennis", "tennis89");
 			PreparedStatement st = con.prepareStatement(sql);
 
-			st.setString(1, Infomation.getTitle());
-			st.setString(2, Infomation.getContent());
-			st.setString(3, Infomation.getCode());
+			st.setString(1, Information.getTitle());
+			st.setString(2, Information.getContents());
+			st.setString(3, Information.getCode());
 
 			int result = st.executeUpdate();
 
@@ -203,7 +208,7 @@ public class JdbcInfomationDao implements InfomationDao {
 
 	@Override
 	public int delete(String code) {
-		String sql = "DELETE FROM INFOBOARDS WHERE CODE=?";
+		String sql = "DELETE FROM INFORMATIONBOARDS WHERE CODE=?";
 		String url = "jdbc:sqlserver://win.newlecture.com:1433;databaseName=tennisdb";
 
 		try {
@@ -233,7 +238,7 @@ public class JdbcInfomationDao implements InfomationDao {
 
 	@Override
 	public int getSize(String query, String field) {
-		String sql = "SELECT COUNT(*) CNT FROM INFOBOARDS WHERE " + field
+		String sql = "SELECT COUNT(*) CNT FROM INFORMATIONBOARDS WHERE " + field
 				+ " LIKE ?";
 		String url = "jdbc:sqlserver://win.newlecture.com:1433;databaseName=tennisdb";
 
@@ -276,7 +281,7 @@ public class JdbcInfomationDao implements InfomationDao {
 
 	@Override
 	public String lastCode() {
-		String sql = "SELECT ISNULL(MAX(CAST(CODE AS INT)), 0) Code  FROM INFOBOARDS";
+		String sql = "SELECT ISNULL(MAX(CAST(CODE AS INT)), 0) Code  FROM INFORMATIONBOARDS";
 		String url = "jdbc:sqlserver://win.newlecture.com:1433;databaseName=tennisdb";
 
 		try {
@@ -304,8 +309,8 @@ public class JdbcInfomationDao implements InfomationDao {
 	}
 
 	@Override
-	public Infomation prevInfomation(String curCode) {
-		String sql = "SELECT TOP 1 * FROM INFOBOARDS"
+	public Information prevInformation(String curCode) {
+		String sql = "SELECT TOP 1 * FROM INFORMATIONBOARDS"
 				+ " WHERE REGDATE > (SELECT REGDATE FROM INFOBOARDS WHERE CODE = ?) "
 				+ " ORDER BY REGDATE ASC";
 		String url = "jdbc:sqlserver://win.newlecture.com:1433;databaseName=tennisdb";
@@ -321,13 +326,14 @@ public class JdbcInfomationDao implements InfomationDao {
 
 			rs.next();
 
-			Infomation b = new Infomation();
-			b.setCode(rs.getString("CODE"));
-			b.setTitle(rs.getString("TITLE"));
-			b.setWriter(rs.getString("WRITER"));
-			b.setRegdate(rs.getDate("REGDATE"));
-			b.setHit(rs.getInt("HIT"));
-			b.setContent(rs.getString("CONTENT"));
+			Information inf = new Information();
+			inf.setCode(rs.getString("CODE"));
+			inf.setWriter(rs.getString("WRITER"));
+			inf.setRegdate(rs.getDate("REGDATE"));
+			inf.setTitle(rs.getString("TITLE"));
+			inf.setContents(rs.getString("CONTENTS"));
+			inf.setHit(rs.getInt("HIT"));
+			inf.setAuthority(rs.getString( "AUTHORITY"));
 
 			rs.close();
 			st.close();
@@ -344,8 +350,8 @@ public class JdbcInfomationDao implements InfomationDao {
 	}
 
 	@Override
-	public Infomation nextInfomation(String curCode) {
-		String sql = "SELECT TOP 1 * FROM INFOBOARDS "
+	public Information nextInformation(String curCode) {
+		String sql = "SELECT TOP 1 * FROM INFORMATIONBOARDS "
 				+ " WHERE REGDATE < (SELECT REGDATE FROM INFOBOARDS WHERE CODE = ?) "
 				+ " ORDER BY REGDATE DESC";
 		String url = "jdbc:sqlserver://win.newlecture.com:1433;databaseName=tennisdb";
@@ -361,13 +367,14 @@ public class JdbcInfomationDao implements InfomationDao {
 
 			rs.next();
 
-			Infomation b = new Infomation();
-			b.setCode(rs.getString("CODE"));
-			b.setTitle(rs.getString("TITLE"));
-			b.setWriter(rs.getString("WRITER"));
-			b.setRegdate(rs.getDate("REGDATE"));
-			b.setHit(rs.getInt("HIT"));
-			b.setContent(rs.getString("CONTENT"));
+			Information inf = new Information();
+			inf.setCode(rs.getString("CODE"));
+			inf.setWriter(rs.getString("WRITER"));
+			inf.setRegdate(rs.getDate("REGDATE"));
+			inf.setTitle(rs.getString("TITLE"));
+			inf.setContents(rs.getString("CONTENTS"));
+			inf.setHit(rs.getInt("HIT"));
+			inf.setAuthority(rs.getString( "AUTHORITY"));
 
 			rs.close();
 			st.close();

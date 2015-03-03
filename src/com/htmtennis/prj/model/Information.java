@@ -2,13 +2,13 @@ package com.htmtennis.prj.model;
 
 import java.util.Date;
 
-public class Infomation {
+public class Information {
 
 	private String code;
 	private String writer;
 	private Date regdate;
 	private String title;
-	private String content;
+	private String contents;
 	private int hit;
 	private int thumb;
 	private String authority;
@@ -38,11 +38,11 @@ public class Infomation {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getContent() {
-		return content;
+	public String getContents() {
+		return contents;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setContents(String contents) {
+		this.contents = contents;
 	}
 	public int getHit() {
 		return hit;

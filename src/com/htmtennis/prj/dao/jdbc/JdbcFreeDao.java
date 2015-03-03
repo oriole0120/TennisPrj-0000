@@ -40,7 +40,7 @@ public class JdbcFreeDao implements FreeDao {
 			fr.setContent(rs.getString("CONTENTS"));
 			fr.setHit(rs.getInt("HIT"));
 			fr.setThumb(rs.getInt("THUMB"));
-			fr.setAuthority(rs.getString("AUTORITY"));*/
+			fr.setAuthority(rs.getString("AUTHORITY"));*/
 			
 			Free fr=new Free();
 			fr.setCode(rs.getString("CODE"));
@@ -49,7 +49,7 @@ public class JdbcFreeDao implements FreeDao {
 			fr.setTitle(rs.getString("TITLE"));
 			fr.setContent(rs.getString("CONTENTS"));
 			fr.setHit(rs.getInt("HIT"));
-			fr.setAuthority(rs.getString( "AUTORITY"));
+			fr.setAuthority(rs.getString( "AUTHORITY"));
 					
 			rs.close();
 			st.close();
