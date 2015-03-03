@@ -1,16 +1,11 @@
-﻿
-<%@page import="com.htmtennis.prj.dao.jdbc.JdbcFreeDao"%>
-<%@page import="com.htmtennis.prj.model.Free"%>
-<%@page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+﻿<%@page import="com.htmtennis.prj.dao.jdbc.JdbcInformationDao"%>
+<%@page import="com.htmtennis.prj.model.Information"%>
 <%	
 	String _code = request.getParameter("c");
-	Free fr = new JdbcFreeDao().getFree(_code);
-	pageContext.setAttribute("fr", fr);
+	Information inf = new JdbcInformationDao().getInformation(_code);
+	pageContext.setAttribute("inf", inf);
 		
 %>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -34,14 +29,14 @@
 
             <main id="main">
                 <div>
-                    <h2 id="main-title">자유게시판</h2>
+                    <h2 id="main-title">정보게시판</h2>
 
                     <nav id="full-path">
                         <!--<h3>현재경로</h3>-->
                         <ol>
                             <!--<li class="path">Home ></li>-->
                             <li class="path">Community ></li>
-                            <li class="path">자유게시판</li>
+                            <li class="path">정보게시판 </li>
                         </ol>
                     </nav>
 
@@ -50,26 +45,26 @@
                         <article class="detail space-top-l">
                             <dl>
                                 <dt class="detail-cell detail-cell-title detail-cell-break">제목</dt>
-                                <dd class="detail-cell text-highlight">${fr.title}</dd>
+                                <dd class="detail-cell text-highlight">${inf.title}</dd>
 
                                 <dt class="detail-cell detail-cell-title detail-cell-break">작성일</dt>
-                                <dd class="detail-cell">${fr.regdate}</dd>
+                                <dd class="detail-cell">${inf.regdate}</dd>
 
                                 <dt class="detail-cell detail-cell-title detail-cell-break">작성자</dt>
-                                <dd class="detail-cell detail-cell-half">${fr.writer}</dd>
+                                <dd class="detail-cell detail-cell-half">${inf.writer}</dd>
 
                                 <dt class="detail-cell detail-cell-title ">조회수</dt>
-                                <dd class="detail-cell detail-cell-half">${fr.hit}</dd>
+                                <dd class="detail-cell detail-cell-half">${inf.hit}</dd>
 
                                 <dt class="detail-cell detail-cell-title ">추천</dt>
-                                <dd class="detail-cell detail-cell-half">${fr.thumb}</dd>
+                                <dd class="detail-cell detail-cell-half">${inf.thumb}</dd>
 
                                 <dt class="detail-cell detail-cell-title ">첨부파일</dt>
                                 <dd class="detail-cell detail-cell-half"></dd>
 
                                 <dt class="hidden">내용</dt>
                                 <dd class="detail-cell-content detail-cell-break">
-                                   ${fr.contents}
+                                    ${inf.contents}
                                 </dd>
                             </dl>
                             <div id="space-top">
@@ -114,7 +109,7 @@
 
 
 
-    <!-- footer -->
+   <!-- footer -->
 		<jsp:include page="../../../inc/footer.jsp"></jsp:include>
 
 </body>

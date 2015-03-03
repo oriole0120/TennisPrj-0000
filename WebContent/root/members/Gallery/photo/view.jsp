@@ -1,12 +1,9 @@
-<<<<<<< HEAD
 ﻿<%@page import="com.htmtennis.prj.dao.PhotoDao"%>
 <%@page import="org.apache.ibatis.session.SqlSession"%>
 <%@page import="com.htmtennis.prj.dao.mybatis.MyBatisMain"%>
 
 <%@page import="com.htmtennis.prj.dao.jdbc.JdbcPhotoDao"%>
-=======
-﻿<%@page import="com.htmtennis.prj.dao.jdbc.JdbcPhotoDao"%>
->>>>>>> refs/remotes/origin/master
+
 <%@page import="com.htmtennis.prj.model.Photo"%>
 
 <%@page language="java" contentType="text/html; charset=UTF-8"

@@ -18,6 +18,7 @@ public class JdbcFreeDao implements FreeDao {
 	@Override
 	public Free getFree(String code) {
 		String sql = "SELECT * FROM FREEBOARDS WHERE CODE = '"+code+"' ";
+		
 		String url = "jdbc:sqlserver://win.newlecture.com:1433;databaseName=tennisdb";
 		
 		
@@ -30,16 +31,16 @@ public class JdbcFreeDao implements FreeDao {
 
 			//모델마련하기		
 			rs.next();
-		
-			Free fr = new Free();
+
+			
+			Free fr=new Free();
 			fr.setCode(rs.getString("CODE"));
 			fr.setWriter(rs.getString("WRITER"));
 			fr.setRegdate(rs.getDate("REGDATE"));
 			fr.setTitle(rs.getString("TITLE"));
-			fr.setContent(rs.getString("CONTENTS"));
+			fr.setContents(rs.getString("CONTENTS"));
 			fr.setHit(rs.getInt("HIT"));
-			fr.setThumb(rs.getInt("THUMB"));
-			fr.setAuthority(rs.getString("AUTORITY"));
+			fr.setAuthority(rs.getString( "AUTHORITY"));
 					
 			rs.close();
 			st.close();
@@ -87,7 +88,7 @@ public class JdbcFreeDao implements FreeDao {
 				fr.setWriter(rs.getString("WRITER"));
 				fr.setRegdate(rs.getDate("REGDATE"));
 				fr.setTitle(rs.getString("TITLE"));
-				fr.setContent(rs.getString("CONTENTS"));
+				fr.setContents(rs.getString("CONTENTS"));
 				fr.setHit(rs.getInt("HIT"));
 				fr.setThumb(rs.getInt("THUMB"));
 				fr.setAuthority(rs.getString("AUTHORITY"));
@@ -146,7 +147,7 @@ public class JdbcFreeDao implements FreeDao {
 			st.setString(1, code);
 			st.setString(2, free.getTitle());
 			st.setString(3, free.getWriter());
-			st.setString(4, free.getContent());
+			st.setString(4, free.getContents());
 
 			int result = st.executeUpdate(); // 실행했을때 영향받는 row 수
 
@@ -178,7 +179,7 @@ public class JdbcFreeDao implements FreeDao {
 			PreparedStatement st = con.prepareStatement(sql);
 		
 			st.setString(1, free.getTitle());
-			st.setString(2, free.getContent());
+			st.setString(2, free.getContents());
 			st.setString(3, free.getCode());
 			
 			int result = st.executeUpdate();
@@ -323,7 +324,7 @@ public class JdbcFreeDao implements FreeDao {
 		fr.setWriter(rs.getString("WRITER"));
 		fr.setRegdate(rs.getDate("REGDATE"));
 		fr.setTitle(rs.getString("TITLE"));
-		fr.setContent(rs.getString("CONTENTS"));
+		fr.setContents(rs.getString("CONTENTS"));
 		fr.setHit(rs.getInt("HIT"));
 		fr.setThumb(rs.getInt("THUMB"));
 		fr.setAuthority(rs.getString("AUTHORITY"));
@@ -365,7 +366,7 @@ public class JdbcFreeDao implements FreeDao {
 		fr.setWriter(rs.getString("WRITER"));
 		fr.setRegdate(rs.getDate("REGDATE"));
 		fr.setTitle(rs.getString("TITLE"));
-		fr.setContent(rs.getString("CONTENTS"));
+		fr.setContents(rs.getString("CONTENTS"));
 		fr.setHit(rs.getInt("HIT"));
 		fr.setThumb(rs.getInt("THUMB"));
 		fr.setAuthority(rs.getString("AUTHORITY"));
