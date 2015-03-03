@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 ﻿<%@page import="com.htmtennis.prj.dao.PhotoDao"%>
 <%@page import="org.apache.ibatis.session.SqlSession"%>
 <%@page import="com.htmtennis.prj.dao.mybatis.MyBatisMain"%>
 
 <%@page import="com.htmtennis.prj.dao.jdbc.JdbcPhotoDao"%>
-=======
-﻿<%@page import="com.htmtennis.prj.dao.jdbc.JdbcPhotoDao"%>
->>>>>>> refs/remotes/origin/master
 <%@page import="com.htmtennis.prj.model.Photo"%>
 
 <%@page language="java" contentType="text/html; charset=UTF-8"
@@ -45,7 +41,7 @@
             <main id="main">
                <!--  main content part  -->
                 <div id="main-title-bar">
-                    <p> >>Photo </p>
+                    <p> >>Video </p>
                 </div>
 
                 <div>
@@ -102,7 +98,7 @@
                             </div>
                         </div>
 
-                        <article class="detail">
+                        <div class="detail">
                             <dl>
                             	<dt class="detail-cell title newrow">제목</dt>
 		                        <dd class="detail-cell text-highlight">${ph.title}</dd>
@@ -117,17 +113,32 @@
 		                        <dt class="hidden">내용</dt>
 		                        <dd class="content newrow">${ph.contents}</dd>
                             </dl>
+                            
+                                <!-- <dd class="solid-line-2 text-center">
+                                    2015년 새로운 공지
+                                </dd>
+                                <li class="detail-float-left">
+                                    2015-02-11
+                                </li>
+                                <li class="detail-float-left">
+                                    chan
+                                </li>
+                                <li>
+                                    조회
+                                </li>
+                                <li class="solid-line-2 detail-text-area text-center">
+                                    글본문 영역
+                                </li> -->
 
                             <p class="space-top text-center">
-                                <a class="btn btn-list" href="list.jsp">목록</a>
-                                <a class="btn btn-list" href="photoEdit.jsp?c=${ph.code}">수정</a>
-                                <a class="btn btn-list" href="photoDelProc.jsp?c=${ph.code}">삭제</a>
+                                <a class="btn btn-list" href="list.jsp">목록버튼</a>
                             </p>
 
                         </div>
-                    </article>
 
+                    </article>
                 </div>
+
             </main>
 
         </div>

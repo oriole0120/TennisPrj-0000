@@ -13,6 +13,6 @@ public interface CourtDao {
 		public int insert(Court court);
 		public int update(Court court);
 		public int delete(String code);
-		/*public int getSize(String query, String field);
-		public int getSize(String query);*/
+		public int getSize(String query, String field);
+		public int getSize(String query);
 }

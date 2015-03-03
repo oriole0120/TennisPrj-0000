@@ -3,10 +3,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-
-    <link href="../css/bind.css" rel="stylesheet" type="text/css" />
+    <link href="css/bind.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../js/modernizr.js"></script>
 </head>
+
 
 <body>
     <header id="header">
@@ -14,7 +14,7 @@
         <div class="content-wrapper">
             <h1 class="hidden">Header</h1>
             <div class="logo">
-                <a href=""><img src="../../../images/logo_s.png" alt="동아리로고"></a>
+                <a href=""><img src="../../images/logo_s.png" alt="동아리로고"></a>
                 <p>Hansung Tennis Membership</p>
             </div>
 
@@ -40,20 +40,13 @@
                 </nav>
             </section>
 
-
             <div class="header-slide-img">
                 <!--  image slide part  -->
-                <img id="slide-img" src="../../../images/slide-img01.png" />
-
+                <img id="slide-img" src="../../images/slide-img01.png" />
             </div>
 
-
-
-
         </div>
-
     </header>
-
 
 
     <div id="body">
@@ -92,83 +85,52 @@
 
 
             <main id="main">
-                <div>
-                    <h2 id="main-title">자유게시판</h2>
+                <!--<h2 id="main-title">Link</h2>-->
 
-                    <nav id="full-path">
-                        <!--<h3>현재경로</h3>-->
-                        <ol>
-                            <!--<li class="path">Home ></li>-->
-                            <li class="path">Community ></li>
-                            <li class="path">자유게시판</li>
-                        </ol>
-                    </nav>
 
-                    <div id="detail-view">
-                        <!--글 보기 화면-->
-                        <article class="detail space-top-l">
-                            <dl>
-                                <dt class="detail-cell detail-cell-title detail-cell-break">제목</dt>
-                                <dd class="detail-cell text-highlight">2015년 첫 테니스~!</dd>
-
-                                <dt class="detail-cell detail-cell-title detail-cell-break">작성일</dt>
-                                <dd class="detail-cell">2015-02-01</dd>
-
-                                <dt class="detail-cell detail-cell-title detail-cell-break">작성자</dt>
-                                <dd class="detail-cell detail-cell-half">페더러</dd>
-
-                                <dt class="detail-cell detail-cell-title ">조회수</dt>
-                                <dd class="detail-cell detail-cell-half">50</dd>
-
-                                <dt class="detail-cell detail-cell-title ">추천</dt>
-                                <dd class="detail-cell detail-cell-half">77</dd>
-
-                                <dt class="detail-cell detail-cell-title ">첨부파일</dt>
-                                <dd class="detail-cell detail-cell-half"></dd>
-
-                                <dt class="hidden">내용</dt>
-                                <dd class="detail-cell-content detail-cell-break">
-                                    2015년 첫 테니스를 쳤습니다.<br />
-                                    간만에 쳐도 재밌네요ㅎㅎ<br />
-                                    모두들 즐테하시기 바랍니다^^<br />
-                                </dd>
-                            </dl>
-                            <div id="space-top">
-                                <p class="space-top text-center">
-                                    <a class="btn btn-list" href="list.html">목록</a>
-                                </p>
-                                <p class="space-top text-center">
-                                    <a class="btn btn-list" href="view.html">이전글</a>
-                                </p>
-
-                                <p class="space-top text-center">
-                                    <a class="btn btn-list" href="view.html">다음글</a>
-                                </p>
-                            </div>
-                        </article>
-
-    </div>
-                    <!--<h3>영상게시물 검색폼</h3>-->
-
-                    <!--<div id="main-search-form">
-                        
-                        <form>
-                            <fieldset>
-                               
-                                <select>
-                                    <option>작성자</option>
-                                    <option>제목</option>
-                                    <option>본문</option>
-                                </select>
-
-                                <input class="search" type="text" name="query" />
-                                <input class="search" type="submit" value="검색" />
-
-                            </fieldset>
-                        </form>
-                    </div>-->
+                <div class="text-center space-top">
+                    <div class="wrapper">
+                        <div class="main-item">
+                            <!--<h3>영상게시물 검색폼</h3>-->
+                            <form>
+                                <fieldset>
+                                    <a>지도를 클릭하시면 서울 및 지역구별 검색을 할수 있습니다</a>
+                                    <input class="input-normal" type="text" name="query" />
+                                    <input class="btn btn-search" type="submit" value="검색" />
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="space-top">
+                    <table class="board-tabled text-center">
+                        <thead>
+                            <tr class="board-rowd">
+                                <th class="board-cell-thd board-cell-width-60d  text-center"><a href="">번호</a></th>
+                                <th class="board-cell-thd board-cell-width-100d  text-center"><a href="">이름</a></th>
+                                <th class="board-cell-thd board-cell-width-300d  text-center"><a href="">주소</a></th>
+                                <th class="board-cell-thd board-cell-width-160d  text-center"><a href="">전화번호</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="board-rowd">
+                                <th class="board-celld board-cell-width-60d"><a href="">1</a></th>
+                                <th class="board-celld board-cell-width-100d"><a href="">테니스메트로</a></th>
+                                <th class="board-celld board-cell-width-300d"><a href="">서울특별시 중구 광희동1가</a></th>
+                                <th class="board-celld board-cell-width-160d"><a href="">02-2266-0589</a></th>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="text-center">
+                    <a class="court" href=""><img src="../../images/map-detail.png" width="500" height="350" alt="맵"></a>
+                </div>
+
             </main>
+
+
 
         </div>
     </div>
@@ -180,7 +142,7 @@
         <div class="content-wrapper clearfix">
 
             <div id="logo-footer-container">
-                <h2><img src="../../../images/logo_m.png" alt="동아리정보" /></h2>
+                <h2><img src="../../images/logo_m.png" alt="동아리정보" /></h2>
             </div>
 
             <div id="company-info-container">
