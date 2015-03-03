@@ -18,6 +18,7 @@ public class JdbcFreeDao implements FreeDao {
 	@Override
 	public Free getFree(String code) {
 		String sql = "SELECT * FROM FREEBOARDS WHERE CODE = '"+code+"' ";
+		
 		String url = "jdbc:sqlserver://win.newlecture.com:1433;databaseName=tennisdb";
 		
 		
@@ -31,7 +32,7 @@ public class JdbcFreeDao implements FreeDao {
 			//모델마련하기		
 			rs.next();
 		
-			Free fr = new Free();
+			/*Free fr = new Free();
 			fr.setCode(rs.getString("CODE"));
 			fr.setWriter(rs.getString("WRITER"));
 			fr.setRegdate(rs.getDate("REGDATE"));
@@ -39,7 +40,16 @@ public class JdbcFreeDao implements FreeDao {
 			fr.setContent(rs.getString("CONTENTS"));
 			fr.setHit(rs.getInt("HIT"));
 			fr.setThumb(rs.getInt("THUMB"));
-			fr.setAuthority(rs.getString("AUTORITY"));
+			fr.setAuthority(rs.getString("AUTORITY"));*/
+			
+			Free fr=new Free();
+			fr.setCode(rs.getString("CODE"));
+			fr.setWriter(rs.getString("WRITER"));
+			fr.setRegdate(rs.getDate("REGDATE"));
+			fr.setTitle(rs.getString("TITLE"));
+			fr.setContent(rs.getString("CONTENTS"));
+			fr.setHit(rs.getInt("HIT"));
+			fr.setAuthority(rs.getString( "AUTORITY"));
 					
 			rs.close();
 			st.close();

@@ -41,6 +41,4 @@ INSERT INTO LINKCOURTS VALUES ('1', '한성대테니스장', '성북구 삼선동 한성대 테니
 =======
 SELECT N.* FROM (SELECT ( ROW_NUMBER() OVER (ORDER BY REGDATE DESC) ) NUM, FREEBOARDS.*FROM FREEBOARDS WHERE 'title' LIKE '' ) N WHERE N.NUM BETWEEN 1 AND 10;
 
->>>>>>> refs/remotes/origin/master
-	
->>>>>>> refs/remotes/origin/master
+SELECT * FROM FREEBOARDS WHERE CODE = '11';

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.htmtennis.prj.dao.InfomationDao;
+import com.htmtennis.prj.model.Free;
 import com.htmtennis.prj.model.Infomation;
 
 public class JdbcInfomationDao implements InfomationDao {
@@ -30,18 +31,19 @@ public class JdbcInfomationDao implements InfomationDao {
 			// 모델마련하기
 			rs.next();
 
-			Infomation b = new Infomation();
-			b.setCode(rs.getString("CODE"));
-			b.setTitle(rs.getString("TITLE"));
-			b.setWriter(rs.getString("WRITER"));
-			b.setRegdate(rs.getDate("REGDATE"));
-			b.setHit(rs.getInt("HIT"));
-			b.setContent(rs.getString("CONTENT"));
+			Informat Inf = new Information();
+			if.setCode(rs.getString("CODE"));
+			if.setWriter(rs.getString("WRITER"));
+			if.setRegdate(rs.getDate("REGDATE"));
+			if.setTitle(rs.getString("TITLE"));
+			if.setContent(rs.getString("CONTENTS"));
+			if.setHit(rs.getInt("HIT"));
+			if.setAuthority(rs.getString( "AUTORITY"));
 
 			rs.close();
 			st.close();
 			con.close();
-			return b;
+			return if;
 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
