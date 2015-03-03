@@ -1,13 +1,16 @@
-﻿<%@page import="java.util.List"%>
+﻿<%@page import="org.apache.ibatis.session.SqlSession"%>
+<%@page import="com.htmtennis.prj.dao.mybatis.MyBatisMain"%>
 <%@page import="com.htmtennis.prj.dao.jdbc.JdbcPhotoDao"%>
 <%@page import="com.htmtennis.prj.dao.PhotoDao"%>
 <%@page import="com.htmtennis.prj.model.Photo"%>
-
+<%@page import="java.util.List"%>
 
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <c:set var="ctxName" value="${pageContext.request.servletContext.contextPath}" />
 <%	String ctx = request.getContextPath();	%>
 	
 <% 
@@ -26,11 +29,15 @@
 	if(_field!= null && !_field.equals(""))
 		nfield = _field;
 	
-	PhotoDao photoDao = new JdbcPhotoDao();
+//	PhotoDao photoDao = new JdbcPhotoDao();
+ 	
+	SqlSession sqlSession = MyBatisMain.getSqlSessionFactory().openSession(true);
+	PhotoDao photoDao = sqlSession.getMapper(PhotoDao.class);
+ 	
 	List<Photo> list = photoDao.getPhotos(npage, nquery, nfield);
 	
 	pageContext.setAttribute("list", list);
-	pageContext.setAttribute("total", photoDao.getSize(""));
+	pageContext.setAttribute("total", photoDao.getSize("", "TITLE"));
 	
 %>
 
@@ -45,42 +52,14 @@
 </head>
 
 <body>
-    
+    <!-- header -->
     <jsp:include page="../../../inc/header.jsp"></jsp:include>
 
     <div id="body">
         <div class="content-wrapper clearfix">
-
-            <aside id="side">
-                <!--  aside menu part  -->
-                <!--<h2 class="hidden">Menu</h2>-->
-                <nav id="side-menu">
-                    <ul class="clearfix">
-                        <li class="side-menu-item"><a class="side-menu-text" href="../../Notice/list.html">Notice</a></li>
-                        <li class="side-menu-item"><a class="side-menu-text" href="../../">Tennis</a></li>
-
-                        <li class="side-menu-item">
-                            <a class="side-menu-text" href="">Community</a>
-                            <ul>
-                                <li class="side-menu-detail"><a class="side-menu-text" href="../../Community/freeboard/list.html">Free</a>
-                                <li class="side-menu-detail"><a class="side-menu-text" href="../../Community/infomation/list.html">Info</a>
-                            </ul>
-                        </li>
-
-                        <li class="side-menu-item">
-                            <a class="side-menu-text" href="">Gallery</a>
-                            <ul>
-                                <li class="side-menu-detail"><a class="side-menu-text" href="list.html">Photo</a>
-                                <li class="side-menu-detail"><a class="side-menu-text" href="../video/list.html">Video</a>
-                            </ul>
-                        </li>
-
-                        <li class="side-menu-item"><a class="side-menu-text" href="../../Schedule/list.html">Schedule</a></li>
-                        <li class="side-menu-item"><a class="side-menu-text" href="../../Link/main.html">Link</a></li>
-                    </ul>
-                </nav>
-
-            </aside>
+        
+        	<!-- aside -->
+            <jsp:include page="../../../inc/aside.jsp"></jsp:include>
 
 
             <main id="main">
@@ -117,22 +96,17 @@
 	                                </td>
 	                            </c:forEach>
 
-
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                
-                
-
-            </main>
-
+             </main>
         </div>
     </div>
 
 
+		<!-- footer -->
+		<jsp:include page="../../../inc/footer.jsp"></jsp:include>
 
-   <jsp:include page="../../../inc/footer.jsp"></jsp:include>
-
-</body>
+	</body>
 </html>

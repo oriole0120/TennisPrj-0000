@@ -24,6 +24,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
    <!-- UserMap.xml 등록 -->
    <mappers>
       <mapper resource="com/htmtennis/prj/dao/mybatis/PhotoDao.xml" />
+      <!-- <mapper class = "com.htmtennis.prj.dao.PhotoDao"/> -->
    </mappers>
 </configuration>  
 

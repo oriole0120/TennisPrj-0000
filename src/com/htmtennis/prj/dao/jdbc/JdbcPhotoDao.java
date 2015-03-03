@@ -34,7 +34,7 @@ public class JdbcPhotoDao implements PhotoDao {
 			ph.setWriter(rs.getString("WRITER"));
 			ph.setRegdate(rs.getDate("REGDATE"));
 			ph.setTitle(rs.getString("TITLE"));
-			ph.setContent(rs.getString("CONTENTS"));
+			ph.setContents(rs.getString("CONTENTS"));
 			ph.setHit(rs.getInt("HIT"));
 			ph.setThumb(rs.getInt("THUMB"));
 			ph.setAuthority(rs.getString("AUTORITY"));
@@ -88,7 +88,7 @@ public class JdbcPhotoDao implements PhotoDao {
 				ph.setWriter(rs.getString("WRITER"));
 				ph.setRegdate(rs.getDate("REGDATE"));
 				ph.setTitle(rs.getString("TITLE"));
-				ph.setContent(rs.getString("CONTENTS"));
+				ph.setContents(rs.getString("CONTENTS"));
 				ph.setHit(rs.getInt("HIT"));
 				ph.setThumb(rs.getInt("THUMB"));
 				ph.setAuthority(rs.getString("AUTHORITY"));
@@ -112,7 +112,7 @@ public class JdbcPhotoDao implements PhotoDao {
 		return null;
 	}
 
-	@Override
+/*	@Override
 	public List<Photo> getPhotos(int page, String query) {
 		
 		return getPhotos(page, query, "TITLE");
@@ -123,7 +123,7 @@ public class JdbcPhotoDao implements PhotoDao {
 		
 		return getPhotos(page, "");
 	}
-
+*/
 	@Override
 	public int insert(Photo photo) {
 		String sql1 = "SELECT ISNULL(MAX(CAST(CODE AS INT)), 0)+1 CODE FROM PHOTOBOARDS";
@@ -148,7 +148,7 @@ public class JdbcPhotoDao implements PhotoDao {
 			st.setString(1, code);
 			st.setString(2, photo.getWriter());
 			st.setString(3, photo.getTitle());
-			st.setString(4, photo.getContent());
+			st.setString(4, photo.getContents());
 		
 			int result = st.executeUpdate();
 
@@ -180,7 +180,7 @@ public class JdbcPhotoDao implements PhotoDao {
 			PreparedStatement st = con.prepareStatement(sql);
 		
 			st.setString(1, photo.getTitle());
-			st.setString(2, photo.getContent());
+			st.setString(2, photo.getContents());
 			st.setString(3, photo.getCode());
 			
 			int result = st.executeUpdate();
@@ -253,7 +253,7 @@ public class JdbcPhotoDao implements PhotoDao {
 			ph.setWriter(rs.getString("WRITER"));
 			ph.setRegdate(rs.getDate("REGDATE"));
 			ph.setTitle(rs.getString("TITLE"));
-			ph.setContent(rs.getString("CONTENTS"));
+			ph.setContents(rs.getString("CONTENTS"));
 			ph.setHit(rs.getInt("HIT"));
 			ph.setThumb(rs.getInt("THUMB"));
 			ph.setAuthority(rs.getString("AUTHORITY"));
@@ -296,7 +296,7 @@ public class JdbcPhotoDao implements PhotoDao {
 			ph.setWriter(rs.getString("WRITER"));
 			ph.setRegdate(rs.getDate("REGDATE"));
 			ph.setTitle(rs.getString("TITLE"));
-			ph.setContent(rs.getString("CONTENTS"));
+			ph.setContents(rs.getString("CONTENTS"));
 			ph.setHit(rs.getInt("HIT"));
 			ph.setThumb(rs.getInt("THUMB"));
 			ph.setAuthority(rs.getString("AUTHORITY"));
@@ -353,12 +353,12 @@ public class JdbcPhotoDao implements PhotoDao {
 		return 0;
 	}
 
-	@Override
+/*	@Override
 	public int getSize(String query) {
 		
 		return getSize(query, "TITLE");
 	}
-
+*/
 	@Override
 	public String lastCode() {
 		String sql = "SELECT ISNULL(MAX(CAST(CODE AS INT)), 0) Code  FROM PHOTOBOARDS";
