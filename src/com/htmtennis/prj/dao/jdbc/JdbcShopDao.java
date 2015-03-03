@@ -237,5 +237,17 @@ public class JdbcShopDao implements CourtDao{
         return 0;
 		
 	}
+	
+	@Override
+	public int getSize(String query, String field) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	@Override
+	public int getSize(String query) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 }

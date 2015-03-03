@@ -5,61 +5,65 @@
 
 <mapper namespace="com.htmtennis.prj.dao.PhotoDao">
 	
-	<select id="getPhoto" 
+	<!-- <select id="getPhoto" 
 		parameterType="String" 
 		resultType="com.htmtennis.prj.model.Photo">
-		SELECT * FROM PHOTOBOARDS WHERE CODE = #{code}; 
-	</select>
+		SELECT * FROM PHOTOBOARDS WHERE CODE = #{code} 
+	</select> -->
 	
-	<select id="prevPhoto" 
+	<!-- <select id="prevPhoto" 
 		parameterType="String" 
 		resultType="com.htmtennis.prj.model.Photo">
 		SELECT TOP 1 * FROM PHOTOBOARDS 
 				WHERE REGDATE &gt; (SELECT REGDATE FROM PHOTOBOARDS WHERE CODE = #{code}) 
-				ORDER BY REGDATE ASC;
-	</select>
+				ORDER BY REGDATE ASC
+	</select> -->
 	
-	<select id="nextPhoto" 
+	<!-- <select id="nextPhoto" 
 		parameterType="String" 
 		resultType="com.htmtennis.prj.model.Photo">
 		SELECT TOP 1 * FROM PHOTOBOARDS 
 				WHERE REGDATE &lt; (SELECT REGDATE FROM PHOTOBOARDS WHERE CODE = #{code}) 
-				ORDER BY REGDATE DESC;	
-	</select>
+				ORDER BY REGDATE DESC	
+	</select> -->
 	
-	<select id="getPhotos">
+	<!-- <select id="getPhotos"
+		parameterType="com.htmtennis.prj.model.Photo">
 		SELECT N.* FROM ( 
 			SELECT ( 
 				ROW_NUMBER() OVER (ORDER BY REGDATE DESC)
-			) NUM, PHOTOBOARDS.* FROM PHOTOBOARDS WHERE ${param3} LIKE #{param2} 
+			) NUM, PHOTOBOARDS.* FROM PHOTOBOARDS WHERE ${param3} LIKE '%${param2}%' 
 		) N 
-		WHERE N.NUM BETWEEN 1+(#{param1}-1)*20 AND 20+(#{param1}-1)*20;
-	</select>
+		WHERE N.NUM BETWEEN 1+(#{param1}-1)*20 AND 20+(#{param1}-1)*20
+	</select> -->
 	
-	<!-- <insert id="insert">
-		SELECT ISNULL(MAX(CAST(CODE AS INT)), 0)+1 CODE FROM PHOTOBOARDS
-		INSERT INTO PHOTOBOARDS(CODE, WRITER, REGDATE, TITLE, CONTENTS, HIT, THUMB, AUTHORITY) 
-				VALUES(?, ?, Getdate(), ?, ?, 0, 0, 'B')
+	<!-- <insert id="insert"
+		parameterType="com.htmtennis.prj.model.Photo">
+			<selectKey keyColumn="code" resultType="String" order="BEFORE">
+				SELECT ISNULL(MAX(CAST(CODE AS INT)), 0)+1 CODE FROM PHOTOBOARDS
+			</selectKey>
+			INSERT INTO PHOTOBOARDS(CODE, WRITER, REGDATE, TITLE, CONTENTS, HIT, THUMB, AUTHORITY) 
+					VALUES(#{code}, #{writer}, GETDATE(), #{title}, #{contents}, 0, 0, 'B')
 	</insert> -->
 	
 	<update id="update"	
 		parameterType="com.htmtennis.prj.model.Photo">
-		UPDATE PHOTOBOARDS SET TITLE=#{title}, CONTENTS=#{contents} WHERE CODE=#{code};
+		UPDATE PHOTOBOARDS SET TITLE=#{title}, CONTENTS=#{contents} WHERE CODE=#{code}
 	</update>
 	
 	<delete id="delete"
 		parameterType="String">
-		DELETE FROM PHOTOBOARDS WHERE CODE = #{code};
+		DELETE FROM PHOTOBOARDS WHERE CODE = #{code}
 	</delete>
 	
 	<select id="getSize"  
 		resultType="int">
-		SELECT COUNT(*) CNT FROM PHOTOBOARDS WHERE ${param2} LIKE #{param1};
+		SELECT COUNT(*) CNT FROM PHOTOBOARDS WHERE ${param2} LIKE #{param1}
 	</select>
 		
 	<select id="lastCode"
 		resultType="String">
-		SELECT ISNULL(MAX(CAST(CODE AS INT)), 0) Code  FROM PHOTOBOARDS;
+		SELECT ISNULL(MAX(CAST(CODE AS INT)), 0) Code  FROM PHOTOBOARDS
 	</select>
 	
 </mapper>

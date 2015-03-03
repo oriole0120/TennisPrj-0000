@@ -42,7 +42,7 @@
                     <h1 class="hidden">본문 작성</h1>
                     
                     <div id="main-title-bar">
-    	                <p> >>Photo </p>
+    	                <p> >>Video </p>
 	                </div>
         
                     

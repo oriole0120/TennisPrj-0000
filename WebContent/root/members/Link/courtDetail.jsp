@@ -3,22 +3,20 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-
-    <link href="../css/bind.css" rel="stylesheet" type="text/css" />
-    <!--<script type="text/javascript" src="../js/modernizr.js"></script>-->
-    <script type="text/javascript" src="../../../editor/js/HuskyEZCreator.js" charset="utf8"></script>
-
-
-
+    <link href="css/bind.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/modernizr.js"></script>
+    <script type="text/javascript" src="../../js/map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 </head>
 
-<body>
+
+<body onload="initialize()">
     <header id="header">
         <!--  header part  -->
         <div class="content-wrapper">
             <h1 class="hidden">Header</h1>
             <div class="logo">
-                <a href=""><img src="../../../images/logo_s.png" alt="동아리로고"></a>
+                <a href=""><img src="../../images/logo_s.png" alt="동아리로고"></a>
                 <p>Hansung Tennis Membership</p>
             </div>
 
@@ -44,18 +42,12 @@
                 </nav>
             </section>
 
-
             <div class="header-slide-img">
                 <!--  image slide part  -->
-                <img id="slide-img" src="../../../images/slide-img01.png" />
-
+                <img id="slide-img" src="../../images/slide-img01.png" />
             </div>
 
-
-
-
         </div>
-
     </header>
 
 
@@ -67,27 +59,27 @@
                 <!--<h2 class="hidden">Menu</h2>-->
                 <nav id="side-menu">
                     <ul class="clearfix">
-                        <li class="side-menu-item"><a class="side-menu-text" href="../../Notice/list.html">Notice</a></li>
-                        <li class="side-menu-item"><a class="side-menu-text" href="../../">Tennis</a></li>
+                        <li class="side-menu-item"><a class="side-menu-text" href="">Notice</a></li>
+                        <li class="side-menu-item"><a class="side-menu-text" href="">Tennis</a></li>
 
                         <li class="side-menu-item">
                             <a class="side-menu-text" href="">Community</a>
                             <ul>
-                                <li class="side-menu-detail"><a class="side-menu-text" href="../../Community/freeboard/list.html">Free</a>
-                                <li class="side-menu-detail"><a class="side-menu-text" href="../../Community/infomation/list.html">Info</a>
+                                <li class="side-menu-detail"><a class="side-menu-text" href="">Free</a>
+                                <li class="side-menu-detail"><a class="side-menu-text" href="">Info</a>
                             </ul>
                         </li>
 
                         <li class="side-menu-item">
                             <a class="side-menu-text" href="">Gallery</a>
                             <ul>
-                                <li class="side-menu-detail"><a class="side-menu-text" href="../photo/list.html">Photo</a>
-                                <li class="side-menu-detail"><a class="side-menu-text" href="list.html">Video</a>
+                                <li class="side-menu-detail"><a class="side-menu-text" href="">Photo</a>
+                                <li class="side-menu-detail"><a class="side-menu-text" href="">Video</a>
                             </ul>
                         </li>
 
-                        <li class="side-menu-item"><a class="side-menu-text" href="../../Schedule/list.html">Schedule</a></li>
-                        <li class="side-menu-item"><a class="side-menu-text" href="../../Link/main.html">Link</a></li>
+                        <li class="side-menu-item"><a class="side-menu-text" href="">Schedule</a></li>
+                        <li class="side-menu-item"><a class="side-menu-text" href="">Link</a></li>
                     </ul>
                 </nav>
 
@@ -95,32 +87,50 @@
 
 
             <main id="main">
+                <!--<h2 id="main-title">Link</h2>-->
 
-                <!--  main content part  -->
-                <div id="main-title-bar">
-                    <p> >>Video </p>
+
+                <div class="text-center space-top">
+                    <div class="wrapper">
+                        <div class="main-item">
+                            <!--<h3>영상게시물 검색폼</h3>-->
+                            <form>
+                                <fieldset>
+                                    <a>지도를 클릭하시면 서울 및 지역구별 검색을 할수 있습니다</a>
+                                    <input class="input-normal" type="text" name="query" />
+                                    <input class="btn btn-search" type="submit" value="검색" />
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
                 </div>
 
+                <div class="space-top">
+                    <table class="board-tabled text-center">
+                        <thead>
+                            <tr class="board-rowd">
+                                <th class="board-cell-thd board-cell-width-60d  text-center"><a href="">번호</a></th>
+                                <th class="board-cell-thd board-cell-width-100d  text-center"><a href="">이름</a></th>
+                                <th class="board-cell-thd board-cell-width-300d  text-center"><a href="">주소</a></th>
+                                <th class="board-cell-thd board-cell-width-160d  text-center"><a href="">전화번호</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="board-rowd">
+                                <th class="board-celld board-cell-width-60d"><a href="">1</a></th>
+                                <th class="board-celld board-cell-width-100d"><a href="">목동 테니스장</a></th>
+                                <th class="board-celld board-cell-width-300d"><a href="">서울특별시 양천구 목동</a></th>
+                                <th class="board-celld board-cell-width-160d"><a href="">02-424-8548</a></th>
+                            </tr>
+                        </tbody>
 
-                <form id="text-area">
-                    <textarea name="ir1" id="ir1" rows="10" cols="100" style="width: 750px; height: 400px; display: none;">
-                        에디터에 기본으로 삽입할 글(수정 모드)이 없다면 이 value 값을 지정하지 않으시면 됩니다.
-                    </textarea>
-                </form>
+                    </table>
+                </div>
 
-
-                <script type="text/javascript">
-                    var oEditors = [];
-                    nhn.husky.EZCreator.createInIFrame({
-                        oAppRef: oEditors,
-                        elPlaceHolder: "ir1",
-                        sSkinURI: "../../../editor/SmartEditor2Skin.html",
-                        fCreator: "createSEditor2"
-                    });
-                </script>
-
-
+                <div id="map_canvas"></div>
             </main>
+
+
 
         </div>
     </div>
@@ -132,7 +142,7 @@
         <div class="content-wrapper clearfix">
 
             <div id="logo-footer-container">
-                <h2><img src="../../../images/logo_m.png" alt="동아리정보" /></h2>
+                <h2><img src="../../images/logo_m.png" alt="동아리정보" /></h2>
             </div>
 
             <div id="company-info-container">

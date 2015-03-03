@@ -241,7 +241,7 @@ public class JdbcCourtDao implements CourtDao{
 		
 	}
 
-	/*@Override
+	@Override
 	public int getSize(String query, String field) {
 		return 0;
 		
@@ -251,6 +251,6 @@ public class JdbcCourtDao implements CourtDao{
 	public int getSize(String query) {
 		return 0;
 		
-	}*/
+	}
 
 }

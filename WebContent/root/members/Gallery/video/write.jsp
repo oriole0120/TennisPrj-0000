@@ -1,14 +1,7 @@
-﻿<%@page import="com.htmtennis.prj.dao.PhotoDao"%>
-<%@page import="org.apache.ibatis.session.SqlSession"%>
-<%@page import="com.htmtennis.prj.dao.mybatis.MyBatisMain"%>
-<%@page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-<%
-	SqlSession sqlSession = MyBatisMain.getSqlSessionFactory().openSession(true);
-	PhotoDao photoDao = sqlSession.getMapper(PhotoDao.class);
-%>
-
+<%	String ctx = request.getContextPath();	%>	
 	
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -19,14 +12,15 @@
     <link href="../css/bind.css" rel="stylesheet" type="text/css" />
     <!--<script type="text/javascript" src="../js/modernizr.js"></script>-->
     <script type="text/javascript" src="../../../editor/js/HuskyEZCreator.js" charset="utf8"></script>
+    
 
 
  
 </head>
 
 <body>
-
-	<!-- header -->
+    
+    <!-- header -->
     <jsp:include page="../../../inc/header.jsp"></jsp:include>
 
     <div id="body">
@@ -35,6 +29,7 @@
         	<!-- aside -->
             <jsp:include page="../../../inc/aside.jsp"></jsp:include>
 
+
             <main id="main">
 
                 <!--  main content part  -->
@@ -42,7 +37,7 @@
                     <h1 class="hidden">본문 작성</h1>
                     
                     <div id="main-title-bar">
-    	                <p> >>Photo </p>
+    	                <p> >>Video </p>
 	                </div>
         
                     
@@ -83,6 +78,6 @@
 
 		<!-- footer -->
 		<jsp:include page="../../../inc/footer.jsp"></jsp:include>
-
+		
         </body>
         </html>
