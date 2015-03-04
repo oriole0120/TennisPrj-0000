@@ -1,89 +1,38 @@
-﻿<!DOCTYPE html>
+﻿
+<%@page import="com.htmtennis.prj.dao.jdbc.JdbcCourtDao"%>
+<%@page import="com.htmtennis.prj.model.Court"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%	
+	String code = request.getParameter("c");
+	Court ct = new JdbcCourtDao().getCourt(code);
+	pageContext.setAttribute("ct", ct);
+		
+%>
+
+
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-    <link href="css/bind.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="../js/modernizr.js"></script>
     <script type="text/javascript" src="../../js/map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="../../js/modernizr.js"></script>
+    <link href="css/bind.css" rel="stylesheet" type="text/css" />
 </head>
 
 
 <body onload="initialize()">
-    <header id="header">
-        <!--  header part  -->
-        <div class="content-wrapper">
-            <h1 class="hidden">Header</h1>
-            <div class="logo">
-                <a href=""><img src="../../images/logo_s.png" alt="동아리로고"></a>
-                <p>Hansung Tennis Membership</p>
-            </div>
-
-            <section class="header-item-container">
-                <h2 class="hidden">머릿말</h2>
-                <nav id="member-menu">
-                    <h3 class="hidden">회원메뉴</h3>
-                    <ul class="clearfix">
-                        <li class="member-menu-item"><a class="member-menu-text" href="">홈</a></li>
-                        <li class="member-menu-item"><a class="member-menu-text" href="">로그인</a></li>
-                        <li class="member-menu-item"><a class="member-menu-text" href="">가입</a></li>
-                    </ul>
-                </nav>
-
-                <nav id="search-form">
-                    <h3 class="hidden">게시글검색폼</h3>
-                    <form>
-                        <fieldset>
-                            <input id="search-input" type="text" />
-                            <input id="search-button" type="submit" value="검색" />
-                        </fieldset>
-                    </form>
-                </nav>
-            </section>
-
-            <div class="header-slide-img">
-                <!--  image slide part  -->
-                <img id="slide-img" src="../../images/slide-img01.png" />
-            </div>
-
-        </div>
-    </header>
-
+   <!-- header -->
+    <jsp:include page="../../inc/header.jsp"></jsp:include>
 
     <div id="body">
         <div class="content-wrapper clearfix">
-
-            <aside id="side">
-                <!--  aside menu part  -->
-                <!--<h2 class="hidden">Menu</h2>-->
-                <nav id="side-menu">
-                    <ul class="clearfix">
-                        <li class="side-menu-item"><a class="side-menu-text" href="">Notice</a></li>
-                        <li class="side-menu-item"><a class="side-menu-text" href="">Tennis</a></li>
-
-                        <li class="side-menu-item">
-                            <a class="side-menu-text" href="">Community</a>
-                            <ul>
-                                <li class="side-menu-detail"><a class="side-menu-text" href="">Free</a>
-                                <li class="side-menu-detail"><a class="side-menu-text" href="">Info</a>
-                            </ul>
-                        </li>
-
-                        <li class="side-menu-item">
-                            <a class="side-menu-text" href="">Gallery</a>
-                            <ul>
-                                <li class="side-menu-detail"><a class="side-menu-text" href="">Photo</a>
-                                <li class="side-menu-detail"><a class="side-menu-text" href="">Video</a>
-                            </ul>
-                        </li>
-
-                        <li class="side-menu-item"><a class="side-menu-text" href="">Schedule</a></li>
-                        <li class="side-menu-item"><a class="side-menu-text" href="">Link</a></li>
-                    </ul>
-                </nav>
-
-            </aside>
+        
+        	<!-- aside -->
+            <jsp:include page="../../inc/aside.jsp"></jsp:include>
 
 
             <main id="main">
@@ -110,17 +59,19 @@
                         <thead>
                             <tr class="board-rowd">
                                 <th class="board-cell-thd board-cell-width-60d  text-center"><a href="">번호</a></th>
-                                <th class="board-cell-thd board-cell-width-100d  text-center"><a href="">이름</a></th>
-                                <th class="board-cell-thd board-cell-width-300d  text-center"><a href="">주소</a></th>
-                                <th class="board-cell-thd board-cell-width-160d  text-center"><a href="">전화번호</a></th>
+                                <th class="board-cell-thd board-cell-width-140d  text-center"><a href="">이름</a></th>
+                                <th class="board-cell-thd board-cell-width-270d  text-center"><a href="">주소</a></th>
+                                <th class="board-cell-thd board-cell-width-100d  text-center"><a href="">전화번호</a></th>
+                                <th class="board-cell-th board-cell-width-100d text-center"><a href="">사이트</a></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="board-rowd">
-                                <th class="board-celld board-cell-width-60d"><a href="">1</a></th>
-                                <th class="board-celld board-cell-width-100d"><a href="">목동 테니스장</a></th>
-                                <th class="board-celld board-cell-width-300d"><a href="">서울특별시 양천구 목동</a></th>
-                                <th class="board-celld board-cell-width-160d"><a href="">02-424-8548</a></th>
+                                <th class="board-celld board-cell-width-60d">${ct.code}</th>
+                                <th class="board-celld board-cell-width-140d">${ct.name}</th>
+                                <th class="board-celld board-cell-width-270d">${ct.address}</th>
+                                <th class="board-celld board-cell-width-100d">${ct.phoneNumber}</th>
+                                <th class="board-cell-th board-cell-width-100d">${ct.site}</th>
                             </tr>
                         </tbody>
 

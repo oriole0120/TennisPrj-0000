@@ -1,7 +1,7 @@
-ï»¿
+
 /*.logo
 {
-    font-family: ë§‘ì€ê³ ë”•, ê³ ë”•, sans-serif;
+    font-family: ¸¼Àº°íµñ, °íµñ, sans-serif;
     font-size: 15px;
     color: #20258c;
   
@@ -43,7 +43,7 @@ h1.logo
 
 .main-menu-text
 {
-    font-family: ë§‘ì€ê³ ë”•, ê³ ë”•, sans-serif;
+    font-family: ¸¼Àº°íµñ, °íµñ, sans-serif;
     font-size: 20px;
     font-weight: bold;
     color: #000000;
@@ -63,7 +63,7 @@ h1.logo
 
 #main-title
 {
-    font-family: ë§‘ì€ê³ ë”•, ê³ ë”•, sans-serif;
+    font-family: ¸¼Àº°íµñ, °íµñ, sans-serif;
     font-size: 21px;
     font-weight: bold;
     color: #646464;
@@ -216,13 +216,13 @@ table
 {
     width:100px;
 }
-.board-cell-width-160
+.board-cell-width-140
 {
-    width:160px;
+    width:140px;
 }
-.board-cell-width-300
+.board-cell-width-270
 {
-    width:300px;
+    width:270px;
 }
 
 /******************** courtDe-board ***********************/
@@ -272,16 +272,16 @@ table
 {
     width:100px;
 }
-.board-cell-width-160d
+.board-cell-width-140d
 {
-    width:160px;
+    width:140px;
 }
-.board-cell-width-300d
+.board-cell-width-270d
 {
-    width:300px;
+    width:270px;
 }
 
-/************************** ë°•ìŠ¤ìŠ¤íƒ€ì¼ *****************************/
+/************************** ¹Ú½º½ºÅ¸ÀÏ *****************************/
 
 wrapper {
     display: inline-block;

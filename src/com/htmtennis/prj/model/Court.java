@@ -3,15 +3,15 @@ package com.htmtennis.prj.model;
 
 
 public class Court {
-	private int code;
+	private String code;
 	private String name;
 	private String address;
-	private String phoNum;
+	private String phoneNumber;
 	private String site;
-	public int getCode() {
+	public String getCode() {
 		return code;
 	}
-	public void setCode(int code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
 	public String getName() {
@@ -26,11 +26,11 @@ public class Court {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getPhoNum() {
-		return phoNum;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
-	public void setPhoNum(String phoNum) {
-		this.phoNum = phoNum;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 	public String getSite() {
 		return site;
