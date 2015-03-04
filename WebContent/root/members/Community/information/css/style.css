@@ -1,6 +1,6 @@
-ï»¿#main-title
+#main-title
 {
-    font-family: ë§‘ì€ê³ ë”•, ê³ ë”•, sans-serif;
+    font-family: ¸¼Àº°íµñ, °íµñ, sans-serif;
     font-size: 21px;
     font-weight: bold;
     color: #000000;
@@ -70,7 +70,7 @@ table
     margin-left: 50px;
 }
 
-/*.board-list-item   - ë¦¬ìŠ¤íŠ¸í…Œì´ë¸” 
+/*.board-list-item   - ¸®½ºÆ®Å×ÀÌºí 
 {
     padding: 15px 5px 15px 5px; 
     border: 1px solid #000000;
@@ -147,7 +147,7 @@ th.title
     width:60px;
 }
 
-.recommend   /*ì¶”ì²œ*/
+.recommend   /*ÃßÃµ*/
 {
     width:60px;
 }
@@ -236,7 +236,7 @@ a.page:first-child
     margin-left:690px;
 }
 
-/*=======================ë””í…Œì¼ í™”ë©´ë³´ê¸°=============*/
+/*=======================µğÅ×ÀÏ È­¸éº¸±â=============*/
 #detail-view
 {
     margin-left:63px;
@@ -288,8 +288,13 @@ a.page:first-child
 
 #space-top
 {
-    margin-left:540px;
+    /* margin-left:50px; */
 
+}
+
+#space-top-two
+{
+	margin-left:615px;
 }
 
 .space-top
@@ -297,5 +302,13 @@ a.page:first-child
 
     float:left;
     margin-top:10px;
-    padding-left:15px;
+    padding-left:10px;
+}
+
+.space-top-two
+{
+
+    float:left;
+    margin-top:10px;
+    padding-left:10px;
 }

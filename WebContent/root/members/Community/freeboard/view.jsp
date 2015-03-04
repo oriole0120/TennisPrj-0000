@@ -11,6 +11,8 @@
 		
 %>
 
+
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -19,6 +21,21 @@
 
     <link href="../css/bind.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../js/modernizr.js"></script>
+    <script>
+    	function init(){
+    		var btnDelPop=document.getElementById("btn-del-pop");
+    		btnDelPop.onclick=btnDelPopClick;
+    	}
+    	function btnDelPopClick(){
+    		if(confirm( '삭제 하시겠습니까?' )){
+    			
+    		}
+    		else{
+    			
+    		}	
+    	}
+    	window.onload=init;
+    </script>
 </head>
 
 <body>
@@ -74,16 +91,32 @@
                             </dl>
                             <div id="space-top">
                                 <p class="space-top text-center">
-                                    <a class="btn btn-list" href="list.html">목록</a>
-                                </p>
-                                <p class="space-top text-center">
                                     <a class="btn btn-list" href="view.html">이전글</a>
                                 </p>
 
                                 <p class="space-top text-center">
-                                    <a class="btn btn-list" href="view.html">다음글</a>
-                                </p>
+                                    <a class="btn btn-list" href="view.html">다음글</a>                                                  			    
+                                </p>	
                             </div>
+                            
+                            <div id="space-top-two">          
+                            	<p class="space-top-two text-center">
+                                    <a class="btn btn-list" href="list.html">목록</a>
+                                </p>
+                                
+                                <p class="space-top-two text-center">
+                                	<a href="noticeEdit.jsp?c=${n.code}">수정</a>
+                                </p>
+									
+                                <%-- <p class="space-top-two text-center">    
+                                	<a href="viewDelProc.jsp?c=${fr.code}">삭제</a>
+                                </p> --%>
+                                
+                                <p class="space-top-two text-center">    
+                                	<a id="btn-del-pop" href="viewDelProc.jsp?c=${fr.code}">삭제</a>
+                                </p>
+                                                 
+                                </div>
                         </article>
 
     </div>
