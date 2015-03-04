@@ -46,24 +46,24 @@
 					VALUES(#{code}, #{writer}, GETDATE(), #{title}, #{contents}, 0, 0, 'B')
 	</insert> -->
 	
-	<update id="update"	
+	<!-- <update id="update"	
 		parameterType="com.htmtennis.prj.model.Photo">
 		UPDATE PHOTOBOARDS SET TITLE=#{title}, CONTENTS=#{contents} WHERE CODE=#{code}
-	</update>
+	</update> -->
 	
-	<delete id="delete"
+	<!-- <delete id="delete"
 		parameterType="String">
 		DELETE FROM PHOTOBOARDS WHERE CODE = #{code}
-	</delete>
+	</delete> -->
 	
-	<select id="getSize"  
+	<!-- <select id="getSize"  
 		resultType="int">
 		SELECT COUNT(*) CNT FROM PHOTOBOARDS WHERE ${param2} LIKE #{param1}
-	</select>
+	</select> -->
 		
-	<select id="lastCode"
+	<!-- <select id="lastCode"
 		resultType="String">
 		SELECT ISNULL(MAX(CAST(CODE AS INT)), 0) Code  FROM PHOTOBOARDS
-	</select>
+	</select> -->
 	
 </mapper>

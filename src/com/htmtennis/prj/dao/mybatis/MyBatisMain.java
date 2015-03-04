@@ -20,6 +20,22 @@ public class MyBatisMain extends HttpServlet {
 		MyBatisMain.sqlSessionFactory = sqlSessionFactory;
 	}
 	
+	/*
+	 public static void start() {
+		
+		InputStream ins;
+		
+		try {
+			ins = Resources.getResourceAsStream("com/htmtennis/prj/dao/mybatis/mybatis-config.xml");
+			SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+			sqlSessionFactory = builder.build(ins);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	*/
+	
 	@Override
 	public void init() throws ServletException {
 		//SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
