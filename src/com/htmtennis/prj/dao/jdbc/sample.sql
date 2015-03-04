@@ -1,7 +1,7 @@
-SELECT * FROM INFORMATIONBOARDS;
+SELECT * FROM NOTICEBOARDS;
 
-INSERT INTO INFORMATIONBOARDS
-	VALUES('17', 'admin', GETDATE(), '인포나와라', '인포메이션', 0, 0, 'A');
+INSERT INTO NOTICEBOARDS
+	VALUES('17', 'admin', GETDATE(), 'dmdmdmmd', '아아아아아', 0, 'A');
 	
 INSERT INTO PHOTOBOARDS 
 	VALUES('2', 'deian', GETDATE(), '샘플데이터', '사진도 없닼ㅋㅋㅋ', 0, 0, 'B');

@@ -5,7 +5,9 @@
     <title></title>
 
     <link href="css/bind.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="../js/modernizr.js"></script>
+    <!--<script type="text/javascript" src="../js/modernizr.js"></script>-->
+    <script type="text/javascript" src="editor/js/HuskyEZCreator.js" charset="utf8"></script>
+
 </head>
 
 <body>
@@ -14,7 +16,7 @@
         <div class="content-wrapper">
             <h1 class="hidden">Header</h1>
             <div class="logo">
-                <a href=""><img src="/Tennis/root/images/logo_s.png" alt="동아리로고"></a>
+                <a href=""><img src="../../images/logo_s.png" alt="동아리로고"></a>
                 <p>Hansung Tennis Membership</p>
             </div>
 
@@ -43,7 +45,7 @@
 
             <div class="header-slide-img">
                 <!--  image slide part  -->
-                <img id="slide-img" src="/Tennis/root/images/slide-img01.png" />
+                <img id="slide-img" src="../../images/slide-img01.png" />
 
             </div>
 
@@ -92,9 +94,37 @@
 
 
             <main id="main">
+                <h2 id="main-title-write">   글 작성 </h2>
+
+                <form id="text-area">
+                    <textarea name="ir1" id="ir1" rows="10" cols="100" style="width:750px; height:400px; display:none;">
+                        에디터에 기본으로 삽입할 글(수정 모드)이 없다면 이 value 값을 지정하지 않으시면 됩니다.</textarea>
+                </form>
+
+                <script type="text/javascript">
+                    var oEditors = [];
+                    nhn.husky.EZCreator.createInIFrame({
+                        oAppRef: oEditors,
+                        elPlaceHolder: "ir1",
+                        sSkinURI: "editor/SmartEditor2Skin.html",
+                        fCreator: "createSEditor2"
+                    });
+                 </script>
+
                 <div>
-                    <!--  main content part  -->
+                    <!--<h3>영상게시물 검색폼</h3>-->
+                    <form>
+                        <fieldset>
+                            <!--<legend>영상검색필드</legend>-->
+                            <div class="regis-btn">
+                                <input type="submit" value="등록" />
+                                <input type="submit" value="취소" />
+                            </div>
+
+                        </fieldset>
+                    </form>
                 </div>
+
             </main>
 
         </div>
@@ -107,7 +137,7 @@
         <div class="content-wrapper clearfix">
 
             <div id="logo-footer-container">
-                <h2><img src="/Tennis/root/images/logo_m.png" alt="동아리정보" /></h2>
+                <h2><img src="../../images/logo_m.png" alt="동아리정보" /></h2>
             </div>
 
             <div id="company-info-container">
