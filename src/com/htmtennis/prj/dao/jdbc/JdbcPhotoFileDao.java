@@ -34,11 +34,11 @@ public class JdbcPhotoFileDao implements PhotoFileDao{
 			while(rs.next()){
 						
 				PhotoFile phF = new PhotoFile();
-				phF.setName(rs.getString("NAME"));
-				phF.setCode(rs.getString("CODE"));
+				phF.setPhotoName(rs.getString("PHOTONAME"));
+				phF.setPhotoCode(rs.getString("PHOTOCODE"));
 				phF.setRegdate(rs.getDate("REGDATE"));
-				phF.setSize(rs.getString("SIZE"));  
-				phF.setSrc(rs.getString("SRC"));
+				phF.setFileSize(rs.getString("FILESIZE"));  
+				phF.setFileSrc(rs.getString("FILESRC"));
 				
 				list.add(phF);
 			}
@@ -64,7 +64,7 @@ public class JdbcPhotoFileDao implements PhotoFileDao{
 	@Override
 	public int insert(PhotoFile file) {
 		String sql1 = "SELECT ISNULL(MAX(CAST(CODE AS INT)), 0)+1 CODE FROM PHOTOFILES";
-		String sql = "INSERT INTO PHOTOFILES(NAME, CODE, REGDATE, SIZE, SRC) VALUES(?, ?, getDate(), ?, ?)";
+		String sql = "INSERT INTO PHOTOFILES(PHOTONAME, PHOTOCODE, REGDATE, FILESIZE, FILESRC) VALUES(?, ?, getDate(), ?, ?)";
 		String url = "jdbc:sqlserver://wiphF.newlecture.com:1433;databaseName=tennisdb";
 		
 		try {
@@ -75,17 +75,17 @@ public class JdbcPhotoFileDao implements PhotoFileDao{
 			ResultSet rs = stCode.executeQuery(sql1);
 			
 			rs.next();
-			String code = rs.getString("Code"); 
+			String code = rs.getString("PHOTOCODE"); 
 					
 			rs.close();
 			stCode.close();
 			
 			PreparedStatement st = con.prepareStatement(sql);
 
-			st.setString(1, file.getName());
+			st.setString(1, file.getPhotoName());
 			st.setString(2, code);
-			st.setString(3, file.getSize());
-			st.setString(4, file.getSrc());
+			st.setString(3, file.getFileSize());
+			st.setString(4, file.getFileSrc());
 
 			int result = st.executeUpdate();
 
