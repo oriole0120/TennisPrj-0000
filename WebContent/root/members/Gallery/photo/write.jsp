@@ -41,9 +41,9 @@
 	                </div>
         
                     
-                    <form id="text-area" action="photoRegProc.jsp" method="post" enctype="multipart/form-data">
+                    <form id="text-area" action="regProc.jsp" method="post" enctype="multipart/form-data">
                     	<fieldset>
-	                    	<legend class="hidden">공지사항입력필드</legend>
+	                    	<legend class="hidden">본문입력필드</legend>
 	                    	
 	                    	<dl>
 		                        <dt class="detail-cell title newrow">제목</dt>
@@ -51,16 +51,20 @@
 		                        
 		                        <dt class="hidden">내용</dt>
 		                        <dd class="content newrow">
-		                        	<textarea name="content" id="content" rows="10" cols="100" style="width: 690px; height: 400px; display: none;"></textarea>
-		                        	<script type="text/javascript">
-					                    var oEditors = [];
-					                    nhn.husky.EZCreator.createInIFrame({
-					                        oAppRef: oEditors,
-					                        elPlaceHolder: "content",
-					                        sSkinURI: "../../../editor/SmartEditor2Skin.html",
-					                        fCreator: "createSEditor2"
-					                    });
-				                	</script>
+		                        	<textarea name="content" id="content" rows="10" cols="100" style="width: 690px; height: 400px; display: none;">
+		                        		본문입력됨?
+		                        	</textarea>
+		                        	
+				                        	<script type="text/javascript">
+							                    var oEditors = [];
+							                    nhn.husky.EZCreator.createInIFrame({
+							                        oAppRef: oEditors,
+							                        elPlaceHolder: "content",
+							                        sSkinURI: "../../../editor/SmartEditor2Skin.html",
+							                        fCreator: "createSEditor2"
+							                    });
+						                	</script>
+				                	
 		                        </dd>
 		                    </dl>
                     	</fieldset>

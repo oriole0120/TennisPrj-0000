@@ -4,22 +4,22 @@ import java.util.Date;
 
 public class PhotoFile {
 	
-	private String name;
-	private String code;
+	private String photoName;
+	private String photoCode;
 	private Date regdate;
-	private String size;
-	private String src;
-	public String getName() {
-		return name;
+	private String fileSize;
+	private String fileSrc;
+	public String getPhotoName() {
+		return photoName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setPhotoName(String photoName) {
+		this.photoName = photoName;
 	}
-	public String getCode() {
-		return code;
+	public String getPhotoCode() {
+		return photoCode;
 	}
-	public void setCode(String code) {
-		this.code = code;
+	public void setPhotoCode(String photoCode) {
+		this.photoCode = photoCode;
 	}
 	public Date getRegdate() {
 		return regdate;
@@ -27,17 +27,17 @@ public class PhotoFile {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	public String getSize() {
-		return size;
+	public String getFileSize() {
+		return fileSize;
 	}
-	public void setSize(String size) {
-		this.size = size;
+	public void setFileSize(String fileSize) {
+		this.fileSize = fileSize;
 	}
-	public String getSrc() {
-		return src;
+	public String getFileSrc() {
+		return fileSrc;
 	}
-	public void setSrc(String src) {
-		this.src = src;
+	public void setFileSrc(String fileSrc) {
+		this.fileSrc = fileSrc;
 	}
-
+	
 }

@@ -40,7 +40,7 @@
 .btn
 {
     display: inline-block;
-    text-indent: -999px;
+    /* text-indent: -999px; */
     overflow: hidden;
     cursor: pointer;
     border: 0px;

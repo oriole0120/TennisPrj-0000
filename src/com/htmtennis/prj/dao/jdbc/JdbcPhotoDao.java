@@ -112,7 +112,7 @@ public class JdbcPhotoDao implements PhotoDao {
 		return null;
 	}
 
-/*	@Override
+	@Override
 	public List<Photo> getPhotos(int page, String query) {
 		
 		return getPhotos(page, query, "TITLE");
@@ -123,7 +123,7 @@ public class JdbcPhotoDao implements PhotoDao {
 		
 		return getPhotos(page, "");
 	}
-*/
+
 	@Override
 	public int insert(Photo photo) {
 		String sql1 = "SELECT ISNULL(MAX(CAST(CODE AS INT)), 0)+1 CODE FROM PHOTOBOARDS";
@@ -353,12 +353,12 @@ public class JdbcPhotoDao implements PhotoDao {
 		return 0;
 	}
 
-/*	@Override
+	@Override
 	public int getSize(String query) {
 		
 		return getSize(query, "TITLE");
 	}
-*/
+
 	@Override
 	public String lastCode() {
 		String sql = "SELECT ISNULL(MAX(CAST(CODE AS INT)), 0) Code  FROM PHOTOBOARDS";
