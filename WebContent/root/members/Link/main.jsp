@@ -103,9 +103,9 @@
                                 <nav>
 
                                     <ul>
-                                        <li class="faceshop"><a href="court.html" class="main-title-item"><img src="../../images/court.jpg" width="150" height="150" alt="시설" /></a></li>
-                                        <li class="faceshop"><a href="shop.html" class="main-title-item"><img src="../../images/shop.jpg" width="150" height="150" alt="장비" /></a></li>
-                                        <li class="faceshop"><a href="siteInfo.html" class="main-title-item"><img src="../../images/site.jpg" width="150" height="150" alt="사이트" /></a></li>
+                                        <li class="faceshop"><a href="court.jsp" class="main-title-item"><img src="../../images/court.jpg" width="150" height="150" alt="시설" /></a></li>
+                                        <li class="faceshop"><a href="shop.jsp" class="main-title-item"><img src="../../images/shop.jpg" width="150" height="150" alt="장비" /></a></li>
+                                        <li class="faceshop"><a href="siteInfo.jsp" class="main-title-item"><img src="../../images/site.jpg" width="150" height="150" alt="사이트" /></a></li>
                                     </ul>
                                 </nav>
                             </div>

@@ -1,4 +1,18 @@
-﻿<!DOCTYPE html>
+﻿
+<%@page import="com.htmtennis.prj.dao.jdbc.JdbcShopDao"%>
+<%@page import="com.htmtennis.prj.model.Shop"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%	
+	String code = request.getParameter("c");
+	Shop sh = new JdbcShopDao().getShop(code);
+	pageContext.setAttribute("sh", sh);
+		
+%>
+
+
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -111,14 +125,16 @@
                                 <th class="board-cell-thd board-cell-width-100d  text-center"><a href="">이름</a></th>
                                 <th class="board-cell-thd board-cell-width-300d  text-center"><a href="">주소</a></th>
                                 <th class="board-cell-thd board-cell-width-160d  text-center"><a href="">전화번호</a></th>
+                                <th class="board-cell-thd board-cell-width-160d  text-center"><a href="">사이트</a></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="board-rowd">
-                                <th class="board-celld board-cell-width-60d"><a href="">1</a></th>
-                                <th class="board-celld board-cell-width-100d"><a href="">테니스메트로</a></th>
-                                <th class="board-celld board-cell-width-300d"><a href="">서울특별시 중구 광희동1가</a></th>
-                                <th class="board-celld board-cell-width-160d"><a href="">02-2266-0589</a></th>
+                                <th class="board-celld board-cell-width-60d">${sh.code}</th>
+                                <th class="board-celld board-cell-width-100d">${sh.name}</th>
+                                <th class="board-celld board-cell-width-300d">${sh.address}</th>
+                                <th class="board-celld board-cell-width-160d">${sh.phoneNumber}</th>
+                                <th class="board-cell-thd board-cell-width-160d text-center">${sh.site}</th>
                             </tr>
                         </tbody>
 
