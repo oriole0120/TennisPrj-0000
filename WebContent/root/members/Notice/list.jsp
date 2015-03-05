@@ -1,7 +1,7 @@
 ﻿<%@page import="com.htmtennis.prj.model.Notice"%>
 <%@page import="com.htmtennis.prj.dao.jdbc.JdbcNoticeDao"%>
 <%@page import="com.htmtennis.prj.dao.NoticeDao"%>
-
+ 
 <%@page import="java.util.List"%>
 
 
@@ -85,6 +85,10 @@
                             
                         </ol>
                     </nav>
+                                        
+                    <div id="write">
+                        <p><a href="write.jsp">글쓰기</a></p>
+                    </div>
 
                     <div>
                         <h3 class="hidden">영상목록부분</h3>

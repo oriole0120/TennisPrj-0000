@@ -19,7 +19,7 @@
 	if(_page != null && !_page.equals(""))
 		npage=Integer.parseInt(_page);
 	
-	if(_field != null && !_field.equals(""))
+	if(_field != null && !_field.equals(""))                   
 		field =_field;
 		
 	if(_query != null && !_query.equals(""))

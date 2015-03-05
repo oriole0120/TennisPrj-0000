@@ -1,7 +1,7 @@
-SELECT * FROM NOTICEBOARDS;
+SELECT * FROM FREEFILES;
 
-INSERT INTO NOTICEBOARDS
-	VALUES('17', 'admin', GETDATE(), 'dmdmdmmd', '아아아아아', 0, 'A');
+INSERT INTO FREEFILES
+	VALUES('tennis', '23', GETDATE(), 'aaaaaa');
 	
 INSERT INTO PHOTOBOARDS 
 	VALUES('2', 'deian', GETDATE(), '샘플데이터', '사진도 없닼ㅋㅋㅋ', 0, 0, 'B');
@@ -29,18 +29,16 @@ INSERT INTO PHOTOBOARDS(CODE, WRITER, REGDATE, TITLE, CONTENTS, HIT, THUMB, AUTH
 	
 SELECT * FROM INFORMATIONBOARDS WHERE CODE = '17';	
 
-<<<<<<< HEAD
-SELECT N.* FROM (SELECT ( ROW_NUMBER() OVER (ORDER BY REGDATE DESC) ) NUM, FREEBOARDS.*FROM FREEBOARDS WHERE 'title' LIKE '' ) N WHERE N.NUM BETWEEN 1 AND 10;
-
-	
-=======
-<<<<<<< HEAD
 SELECT * FROM LINKCOURTS;
 
 INSERT INTO LINKCOURTS VALUES ('1', '한성대테니스장', '성북구 삼선동 한성대 테니스장', '765-5528', 'www.hansung.ac.kr');
-=======
+
 SELECT N.* FROM (SELECT ( ROW_NUMBER() OVER (ORDER BY REGDATE DESC) ) NUM, FREEBOARDS.*FROM FREEBOARDS WHERE 'title' LIKE '' ) N WHERE N.NUM BETWEEN 1 AND 10;
 
+<<<<<<< HEAD
+SELECT * FROM FREEBOARDS WHERE CODE = '11';
+
+=======
 <<<<<<< HEAD
 SELECT * FROM FREEBOARDS WHERE CODE = '11';
 
@@ -48,10 +46,24 @@ select * from linkcourts;
 =======
 <<<<<<< HEAD
 >>>>>>> refs/remotes/origin/master
+>>>>>>> refs/remotes/origin/master
 
+<<<<<<< HEAD
+
+SELECT ISNULL(MAX(CAST(CODE AS INT)), 0)+1 CODE FROM PHOTOFILES";
+
+
+INSERT INTO PHOTOFILES(PHOTONAME, PHOTOCODE, REGDATE, FILESIZE, FILESRC) 
+VALUES('img-sha', '1', GETDATE(), '1,221,668', '/TennisPrj/WebContent/root/members/Gallery/upload/bg-img-sha-orig.png');
+
+
+SELECT COUNT(*) CNT FROM PHOTOBOARDS
+
+=======
 SELECT * FROM FREEBOARDS WHERE CODE = '11';
 	
 =======
 SELECT * FROM FREEBOARDS WHERE CODE = '11';
+>>>>>>> refs/remotes/origin/master
 >>>>>>> refs/remotes/origin/master
 >>>>>>> refs/remotes/origin/master

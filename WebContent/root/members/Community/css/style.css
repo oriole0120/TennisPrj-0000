@@ -288,8 +288,13 @@ a.page:first-child
 
 #space-top
 {
-    margin-left:540px;
+    /* margin-left:50px; */
 
+}
+
+#space-top-two
+{
+	margin-left:615px;
 }
 
 .space-top
@@ -297,5 +302,19 @@ a.page:first-child
 
     float:left;
     margin-top:10px;
-    padding-left:15px;
+    padding-left:10px;
+}
+
+.space-top-two
+{
+
+    float:left;
+    margin-top:10px;
+    padding-left:10px;
+}
+
+.text-highlight
+{
+    font-weight:bold;
+    color:#ff6a00;
 }

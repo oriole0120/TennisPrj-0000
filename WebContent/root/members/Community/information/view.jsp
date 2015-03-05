@@ -69,16 +69,28 @@
                             </dl>
                             <div id="space-top">
                                 <p class="space-top text-center">
-                                    <a class="btn btn-list" href="list.html">목록</a>
-                                </p>
-                                <p class="space-top text-center">
                                     <a class="btn btn-list" href="view.html">이전글</a>
                                 </p>
 
                                 <p class="space-top text-center">
-                                    <a class="btn btn-list" href="view.html">다음글</a>
-                                </p>
+                                    <a class="btn btn-list" href="view.html">다음글</a>                                                  			    
+                                </p>	
                             </div>
+                            
+                            <div id="space-top-two">          
+                            	<p class="space-top-two text-center">
+                                    <a class="btn btn-list" href="list.html">목록</a>
+                                </p>
+                                
+                                <p class="space-top-two text-center">
+                                	<a href="noticeEdit.jsp?c=${inf.code}">수정</a>
+                                </p>
+                                
+                                <p class="space-top-two text-center">    
+                                	<a href="viewDelProc.jsp?c=${inf.code}">삭제</a>
+                                </p>
+                                                 
+                                </div>
                         </article>
 
     </div>

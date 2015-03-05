@@ -40,6 +40,7 @@ public class JdbcFreeDao implements FreeDao {
 			fr.setTitle(rs.getString("TITLE"));
 			fr.setContents(rs.getString("CONTENTS"));
 			fr.setHit(rs.getInt("HIT"));
+			fr.setThumb(rs.getInt("THUMB"));
 			fr.setAuthority(rs.getString( "AUTHORITY"));
 					
 			rs.close();
