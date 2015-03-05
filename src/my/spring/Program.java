@@ -20,7 +20,18 @@ public class Program {
 		ApplicationContext context = 
 				new ClassPathXmlApplicationContext("my/spring/spring-context.xml");
 		
-		PhotoView view = (PhotoView) context.getBean("view");
+/*		PhotoView view = (PhotoView) context.getBean("view");
 		view.print();
+*/		
+		Exam exam = (Exam) context.getBean("exam");
+		ExamManager mng = (ExamManager) context.getBean("mng");
+		
+		/*System.out.println("kor - " + exam.getKor());
+		System.out.println("eng - " + exam.getEng());
+		System.out.println("math - " + exam.getMath());
+		System.out.println("total : " + exam.total());*/
+		
+		mng.print();
+		
 	}
 }

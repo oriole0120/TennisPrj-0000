@@ -30,10 +30,10 @@
 	if(_field!= null && !_field.equals(""))
 		nfield = _field;
 	
-/* 	PhotoDao photoDao = new MyBPhotoDao(); */
+ 	PhotoDao photoDao = new MyBPhotoDao();
  	
-	SqlSession sqlSession = MyBatisMain.getSqlSessionFactory().openSession(true);
-	PhotoDao photoDao = sqlSession.getMapper(PhotoDao.class); 
+	/* SqlSession sqlSession = MyBatisMain.getSqlSessionFactory().openSession(true);
+	PhotoDao photoDao = sqlSession.getMapper(PhotoDao.class);  */
  	
 	List<Photo> list = photoDao.getPhotos(npage, nquery, nfield);
 	
