@@ -26,6 +26,21 @@
 
     <link href="../css/bind.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../js/modernizr.js"></script>
+    <script>
+    	function init(){
+    		var btnDelPop=document.getElementById("btn-del");
+    		btnDelPop.onclick=btnDelPopClick;
+    	}
+    	function btnDelPopClick(){
+    		if(confirm( '삭제 하시겠습니까?' )){
+    			
+    		}
+    		else{
+    			
+    		}	
+    	}
+    	window.onload=init;
+    </script>
 </head>
 
 <body>
@@ -115,10 +130,10 @@
 		                        <dd class="content newrow">${ph.contents}</dd>
                             </dl>
 
-                            <p class="space-top text-center">
-                                <a class="btn btn-list" href="list.jsp">목록</a>
-                                <a class="btn btn-list" href="photoEdit.jsp?c=${ph.code}">수정</a>
-                                <a class="btn btn-list" href="photoDelProc.jsp?c=${ph.code}">삭제</a>
+                            <p class="space-top text-center "> <!-- btn btn-list -->
+                                <a id="btn-list" href="list.jsp">목록</a>
+                                <a id="btn-edit" href="edit.jsp?c=${ph.code}">수정</a>
+                                <a id="btn-del" href="delProc.jsp?c=${ph.code}">삭제</a>
                             </p>
 
                         </div>

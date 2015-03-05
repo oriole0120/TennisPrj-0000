@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.htmtennis.prj.model.Court;
-
 import com.htmtennis.prj.dao.CourtDao;
 import com.htmtennis.prj.model.Court;
 
@@ -18,8 +17,8 @@ public class JdbcCourtDao implements CourtDao{
 
 	@Override
 	public Court getCourt(String code) {
-		String url = "jdbc:sqlserver://win.newlecture.com:1433;datebaseName=newlecdb";
-		String sql = "SELECT * FROM NOTICES WHERE CODE = '"+ code+"'";
+		String url = "jdbc:sqlserver://win.newlecture.com:1433;datebaseName=tennisdb";
+		String sql = "SELECT * FROM LinkCourts WHERE CODE = '"+ code+"'";
 		
 
 			try {
@@ -35,10 +34,10 @@ public class JdbcCourtDao implements CourtDao{
 				//모델 마련하기
 				Court c = new Court();
 				
-				c.setCode(rs.getInt(code));
+				c.setCode(rs.getString("code"));
 				c.setName(rs.getString("name"));
 				c.setAddress(rs.getString("address"));
-				c.setPhoNum(rs.getString("phoNum"));
+				c.setPhoneNumber(rs.getString("phoneNumber"));
 			    c.setSite(rs.getString("site"));
 			  	
 				
@@ -69,8 +68,8 @@ public class JdbcCourtDao implements CourtDao{
 		/*String url = "jdbc:oracle:thin:@win.newlecture.com:1521:orcl";*/
 	    /*String sql = "SELECT * FROM NOTICES";*/
 	    String sql = "SELECT N.* FROM("
-	             + "SELECT (ROW_NUMBER() OVER(ORDER BY REGDATE DESC)"
-	             + ")NUM, NOTICES.* FROM NOTICES WHERE "+field+" LIKE ?) N "
+	             + "SELECT (ROW_NUMBER() OVER(ORDER BY site DESC)"
+	             + ")NUM, LinkCourts.* FROM LinkCourts WHERE "+field+" LIKE ?) N "
 	             + "WHERE N.NUM BETWEEN ? AND ?";
 	    
 		String url = "jdbc:sqlserver://win.newlecture.com:1433;datebaseName=tennisdb";
@@ -93,10 +92,10 @@ public class JdbcCourtDao implements CourtDao{
 					//모델 마련하기
 					Court c = new Court();
 					
-					c.setCode(rs.getInt("code"));
+					c.setCode(rs.getString("code"));
 					c.setName(rs.getString("name"));
 					c.setAddress(rs.getString("address"));
-					c.setPhoNum(rs.getString("phoNum"));
+					c.setPhoneNumber(rs.getString("phoneNumber"));
 				    c.setSite(rs.getString("site"));
 					
 				  	list.add(c);
@@ -133,8 +132,8 @@ public class JdbcCourtDao implements CourtDao{
 
 	@Override
 	public int insert(Court court) {
-		String sqlCode = "SELECT NVL(TO_NUMBER(MAX(CODE)), 0)+1 CODE FROM NOTICES";	/*코드를생성하기위해*/
-        String sql = "INSERT INTO NOTICES(CODE, TITLE, WRITER, CONTENT, REGDATE, HIT) VALUES(?,?,?,?,SYSDATE,0)";
+		String sqlCode = "SELECT NVL(TO_NUMBER(MAX(CODE)), 0)+1 CODE FROM LinkCourts";	/*코드를생성하기위해*/
+        String sql = "INSERT INTO LinkCourts(CODE, name, address, phoneNumber, site) VALUES(?,?,?,?,?)";
 
         //String url = "jdbc:oracle:thin:@win.newlecture.com:1521:orcl";
         String url = "jdbc:sqlserver://win.newlecture.com:1433;datebaseName=newlecdb";
@@ -155,7 +154,7 @@ public class JdbcCourtDao implements CourtDao{
            st.setString(1, code);
            st.setString(2, court.getName());
            st.setString(3, court.getAddress());
-           st.setString(4, court.getPhoNum());
+           st.setString(4, court.getPhoneNumber());
 
            int result = st.executeUpdate();
 
@@ -179,7 +178,7 @@ public class JdbcCourtDao implements CourtDao{
 
 	@Override
 	public int update(Court court) {
-		String sql = "UPDATE NOTICES SET TITLE=?, CONTENT=? WHERE CODE=?";
+		String sql = "UPDATE LinkCourts SET name=?, address=? WHERE code=?";
 
         //String url = "jdbc:oracle:thin:@win.newlecture.com:1521:orcl";
         String url = "jdbc:sqlserver://win.newlecture.com:1433;datebaseName=newlecdb";
@@ -190,7 +189,7 @@ public class JdbcCourtDao implements CourtDao{
            PreparedStatement st = con.prepareStatement(sql);
            st.setString(1, court.getName());
            st.setString(2, court.getAddress());
-           st.setInt(3, court.getCode());
+           st.setString(3, court.getCode());
 
            int result = st.executeUpdate();
 
@@ -212,7 +211,7 @@ public class JdbcCourtDao implements CourtDao{
 
 	@Override
 	public int delete(String code) {
-		 String sql = "DELETE FROM NOTICES WHERE CODE=?";
+		 String sql = "DELETE FROM LinkCourts WHERE code=?";
 
          //String url = "jdbc:oracle:thin:@win.newlecture.com:1521:orcl";
          String url = "jdbc:sqlserver://win.newlecture.com:1433;datebaseName=newlecdb";
@@ -243,13 +242,44 @@ public class JdbcCourtDao implements CourtDao{
 
 	@Override
 	public int getSize(String query, String field) {
+		String sql = "SELECT COUNT(*) CNT FROM LinkCourts WHERE "+ field +" LIKE ?";
+		String url = "jdbc:sqlserver://win.newlecture.com:1433;databaseName=tennisdb";
+
+		try {
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+
+			Connection con = DriverManager.getConnection(url, "tennis", "tennis89");
+			PreparedStatement st = con.prepareStatement(sql);
+			
+			st.setString(1, "%"+ query +"%");
+			
+			ResultSet rs = st.executeQuery();
+	
+			// 모델마련하기
+			rs.next();
+			
+			int size = rs.getInt("CNT");
+			
+			
+			rs.close();
+			st.close();
+			con.close();
+			
+			return size;
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return 0;
-		
 	}
 
 	@Override
 	public int getSize(String query) {
-		return 0;
+		return getSize(query, "name");
 		
 	}
 

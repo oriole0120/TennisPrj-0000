@@ -9,15 +9,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.htmtennis.prj.dao.CourtDao;
-import com.htmtennis.prj.model.Court;
+import com.htmtennis.prj.dao.ShopDao;
 
-public class JdbcShopDao implements CourtDao{
+import com.htmtennis.prj.model.Shop;
+
+
+public class JdbcShopDao implements ShopDao{
 
 	@Override
-	public Court getCourt(String code) {
-		String url = "jdbc:sqlserver://win.newlecture.com:1433;datebaseName=newlecdb";
-		String sql = "SELECT * FROM NOTICES WHERE CODE = '"+ code+"'";
+	public Shop getShop(String code) {
+		String url = "jdbc:sqlserver://win.newlecture.com:1433;datebaseName=tennisdb";
+		String sql = "SELECT * FROM LinkShops WHERE CODE = '"+ code+"'";
 		
 
 			try {
@@ -31,19 +33,19 @@ public class JdbcShopDao implements CourtDao{
 				rs.next();
 				
 				//모델 마련하기
-				Court c = new Court();
+				Shop s = new Shop();
 				
-				c.setCode(rs.getInt(code));
-				c.setName(rs.getString("name"));
-				c.setAddress(rs.getString("address"));
-				c.setPhoNum(rs.getString("phoNum"));
-			    c.setSite(rs.getString("site"));
+				s.setCode(rs.getString("code"));
+				s.setName(rs.getString("name"));
+				s.setAddress(rs.getString("address"));
+				s.setPhoneNumber(rs.getString("phoneNumber"));
+			    s.setSite(rs.getString("site"));
 			  	
 				
 			  	rs.close();
 				st.close();
 				con.close();
-				return c;
+				return s;
 				
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
@@ -57,7 +59,7 @@ public class JdbcShopDao implements CourtDao{
 	}
 
 	@Override
-	public List<Court> getCourts(int page, String query, String field) {
+	public List<Shop> getShops(int page, String query, String field) {
 		int start=1+(page-1)*20;
 	    int end= 20+(page-1)*20;
 		
@@ -67,8 +69,8 @@ public class JdbcShopDao implements CourtDao{
 		/*String url = "jdbc:oracle:thin:@win.newlecture.com:1521:orcl";*/
 	    /*String sql = "SELECT * FROM NOTICES";*/
 	    String sql = "SELECT N.* FROM("
-	             + "SELECT (ROW_NUMBER() OVER(ORDER BY REGDATE DESC)"
-	             + ")NUM, NOTICES.* FROM NOTICES WHERE "+field+" LIKE ?) N "
+	             + "SELECT (ROW_NUMBER() OVER(ORDER BY site DESC)"
+	             + ")NUM, LinkShops.* FROM LinkShops WHERE "+field+" LIKE ?) N "
 	             + "WHERE N.NUM BETWEEN ? AND ?";
 	    
 		String url = "jdbc:sqlserver://win.newlecture.com:1433;datebaseName=tennisdb";
@@ -84,20 +86,20 @@ public class JdbcShopDao implements CourtDao{
 			    
 			    ResultSet rs = st.executeQuery();     
 				
-			    List<Court> list = new ArrayList<Court>();
+			    List<Shop> list = new ArrayList<Shop>();
 				
 			    while(rs.next())
 			    {
 					//모델 마련하기
-					Court c = new Court();
+					Shop s = new Shop();
 					
-					c.setCode(rs.getInt("code"));
-					c.setName(rs.getString("name"));
-					c.setAddress(rs.getString("address"));
-					c.setPhoNum(rs.getString("phoNum"));
-				    c.setSite(rs.getString("site"));
+					s.setCode(rs.getString("code"));
+					s.setName(rs.getString("name"));
+					s.setAddress(rs.getString("address"));
+					s.setPhoneNumber(rs.getString("phoneNumber"));
+				    s.setSite(rs.getString("site"));
 					
-				  	list.add(c);
+				  	list.add(s);
 			    }
 			  	rs.close();
 				st.close();
@@ -118,21 +120,21 @@ public class JdbcShopDao implements CourtDao{
 	}
 
 	@Override
-	public List<Court> getCourts(int page, String query) {
-		return getCourts(page, query, "name");
+	public List<Shop> getShops(int page, String query) {
+		return getShops(page, query, "name");
 		
 	}
 
 	@Override
-	public List<Court> getCourts(int page) {
-		return getCourts(page, "");
+	public List<Shop> getShops(int page) {
+		return getShops(page, "");
 		
 	}
 
 	@Override
-	public int insert(Court court) {
-		String sqlCode = "SELECT NVL(TO_NUMBER(MAX(CODE)), 0)+1 CODE FROM NOTICES";	/*코드를생성하기위해*/
-        String sql = "INSERT INTO NOTICES(CODE, TITLE, WRITER, CONTENT, REGDATE, HIT) VALUES(?,?,?,?,SYSDATE,0)";
+	public int insert(Shop shop) {
+		String sqlCode = "SELECT NVL(TO_NUMBER(MAX(CODE)), 0)+1 CODE FROM LinkShops";	/*코드를생성하기위해*/
+        String sql = "INSERT INTO LinkShops(CODE, name, address, phoneNumber, site) VALUES(?,?,?,?,?)";
 
         //String url = "jdbc:oracle:thin:@win.newlecture.com:1521:orcl";
         String url = "jdbc:sqlserver://win.newlecture.com:1433;datebaseName=newlecdb";
@@ -151,9 +153,9 @@ public class JdbcShopDao implements CourtDao{
            
            PreparedStatement st = con.prepareStatement(sql);
            st.setString(1, code);
-           st.setString(2, court.getName());
-           st.setString(3, court.getAddress());
-           st.setString(4, court.getPhoNum());
+           st.setString(2, shop.getName());
+           st.setString(3, shop.getAddress());
+           st.setString(4, shop.getPhoneNumber());
 
            int result = st.executeUpdate();
 
@@ -171,12 +173,13 @@ public class JdbcShopDao implements CourtDao{
         }
 
         return 0;
-		
+           
+        
 	}
 
 	@Override
-	public int update(Court court) {
-		String sql = "UPDATE NOTICES SET TITLE=?, CONTENT=? WHERE CODE=?";
+	public int update(Shop shop) {
+		String sql = "UPDATE LinkShops SET name=?, address=? WHERE code=?";
 
         //String url = "jdbc:oracle:thin:@win.newlecture.com:1521:orcl";
         String url = "jdbc:sqlserver://win.newlecture.com:1433;datebaseName=newlecdb";
@@ -185,9 +188,9 @@ public class JdbcShopDao implements CourtDao{
        	 	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
            Connection con = DriverManager.getConnection(url, "tennis", "tennis89");
            PreparedStatement st = con.prepareStatement(sql);
-           st.setString(1, court.getName());
-           st.setString(2, court.getAddress());
-           st.setInt(3, court.getCode());
+           st.setString(1, shop.getName());
+           st.setString(2, shop.getAddress());
+           st.setString(3, shop.getCode());
 
            int result = st.executeUpdate();
 
@@ -209,7 +212,7 @@ public class JdbcShopDao implements CourtDao{
 
 	@Override
 	public int delete(String code) {
-		String sql = "DELETE FROM NOTICES WHERE CODE=?";
+		String sql = "DELETE FROM LinkShops WHERE code=?";
 
         //String url = "jdbc:oracle:thin:@win.newlecture.com:1521:orcl";
         String url = "jdbc:sqlserver://win.newlecture.com:1433;datebaseName=newlecdb";
@@ -237,17 +240,48 @@ public class JdbcShopDao implements CourtDao{
         return 0;
 		
 	}
-	
+
 	@Override
 	public int getSize(String query, String field) {
-		// TODO Auto-generated method stub
+		String sql = "SELECT COUNT(*) CNT FROM LinkShops WHERE "+ field +" LIKE ?";
+		String url = "jdbc:sqlserver://win.newlecture.com:1433;databaseName=tennisdb";
+
+		try {
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+
+			Connection con = DriverManager.getConnection(url, "tennis", "tennis89");
+			PreparedStatement st = con.prepareStatement(sql);
+			
+			st.setString(1, "%"+ query +"%");
+			
+			ResultSet rs = st.executeQuery();
+	
+			// 모델마련하기
+			rs.next();
+			
+			int size = rs.getInt("CNT");
+			
+			
+			rs.close();
+			st.close();
+			con.close();
+			
+			return size;
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return 0;
 	}
-	
+
 	@Override
 	public int getSize(String query) {
-		// TODO Auto-generated method stub
-		return 0;
+		return getSize(query, "name");
+		
 	}
 
 }
