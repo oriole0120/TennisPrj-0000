@@ -47,8 +47,8 @@
 		freeFile.setFilename(filename);
 		freeFile.setFreecode(freeCode);
 
-		FreeDao dao = new JdbcFreeDao();
-		dao.insert(fr);
+		FreeFileDao fileDao = new JdbcFreeFileDao();
+		fileDao.insert(freeFile);
 	}
 	//목록페이지로 이동
 	response.sendRedirect("list.jsp");
