@@ -159,7 +159,7 @@
 									<option ${param.f=='name' ? 'selected' : ""} value="name">이름</option>
 									<option ${param.f=='address' ? 'selected' : ""} value="address">주소</option>
 								</select> 
-                                	<input class="input-normal" type="text" name="q" value=${param.q } />
+                                	<input class="input-normal" type="text" name="q" value=${param.q }></input>
                                 	<input class="btn btn-search" type="submit" value="검색" />
                             </fieldset>
                         </form>

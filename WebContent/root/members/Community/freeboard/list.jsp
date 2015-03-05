@@ -156,8 +156,8 @@
                     <div id="main-search-form">
                         <!--<h3>영상게시물 검색폼</h3>-->
                         <form>
-                            <fieldset>
-                                <!--<legend>영상검색필드</legend>-->
+                            <!-- <fieldset>
+                                <legend>영상검색필드</legend>
                                 <select>
                                     <option>작성자</option>
                                     <option>제목</option>
@@ -167,6 +167,20 @@
                                 <input class="search" type="text" name="query" />
                                 <input class="search" type="submit" value="검색" />
 
+                            </fieldset> -->
+                            
+                            <fieldset>
+                                                            
+                                <legend class="hidden">링크 검색 필드</legend>
+							<label for="field" class="hidden">검색분류</label> 
+								<select
+									class="search-field" name="f">
+									<option ${param.f=='writer' ? 'selected' : ""} value="writer">작성자</option>
+									<option ${param.f=='title' ? 'selected' : ""} value="title">제목</option>
+									<option ${param.f=='contents' ? 'selected' : ""} value="contents">본문</option>
+								</select> 
+                                    <input class="search" type="text" name="q" value=${param.q }></input>
+                                	<input class="search" type="submit" value="검색" />
                             </fieldset>
                         </form>
                     </div>

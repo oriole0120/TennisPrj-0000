@@ -29,15 +29,15 @@
 	<classpathentry kind="lib" path="C:/Users/sist/Desktop/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-beans-4.1.5.RELEASE.jar"/>
 	<classpathentry kind="lib" path="C:/Users/sist/Desktop/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-aspects-4.1.5.RELEASE.jar"/>
 	<classpathentry kind="lib" path="C:/Users/sist/Desktop/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-aop-4.1.5.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Chan/TennisPrj/WebContent/WEB-INF/lib/sqljdbc4.jar"/>
-	<classpathentry kind="lib" path="C:/Chan/TennisPrj/WebContent/WEB-INF/lib/asm-3.3.1.jar"/>
-	<classpathentry kind="lib" path="C:/Chan/TennisPrj/WebContent/WEB-INF/lib/cglib-2.2.2.jar"/>
-	<classpathentry kind="lib" path="C:/Chan/TennisPrj/WebContent/WEB-INF/lib/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Chan/TennisPrj/WebContent/WEB-INF/lib/javassist-3.17.1-GA.jar"/>
-	<classpathentry kind="lib" path="C:/Chan/TennisPrj/WebContent/WEB-INF/lib/log4j-1.2.17.jar"/>
-	<classpathentry kind="lib" path="C:/Chan/TennisPrj/WebContent/WEB-INF/lib/log4j-api-2.0.2.jar"/>
-	<classpathentry kind="lib" path="C:/Chan/TennisPrj/WebContent/WEB-INF/lib/log4j-core-2.0.2.jar"/>
-	<classpathentry kind="lib" path="C:/Chan/TennisPrj/WebContent/WEB-INF/lib/slf4j-api-1.7.5.jar"/>
-	<classpathentry kind="lib" path="C:/Chan/TennisPrj/WebContent/WEB-INF/lib/slf4j-log4j12-1.7.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Desktop/Microsoft JDBC Driver 4.0 for SQL Server/sqljdbc_4.0/kor/sqljdbc4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Desktop/mybatis-3.2.8/mybatis-3.2.8/lib/asm-3.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Desktop/mybatis-3.2.8/mybatis-3.2.8/lib/cglib-2.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Desktop/mybatis-3.2.8/mybatis-3.2.8/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Desktop/mybatis-3.2.8/mybatis-3.2.8/lib/javassist-3.17.1-GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Desktop/mybatis-3.2.8/mybatis-3.2.8/lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Desktop/mybatis-3.2.8/mybatis-3.2.8/lib/log4j-api-2.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Desktop/mybatis-3.2.8/mybatis-3.2.8/lib/log4j-core-2.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Desktop/mybatis-3.2.8/mybatis-3.2.8/lib/slf4j-api-1.7.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Desktop/mybatis-3.2.8/mybatis-3.2.8/lib/slf4j-log4j12-1.7.5.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
