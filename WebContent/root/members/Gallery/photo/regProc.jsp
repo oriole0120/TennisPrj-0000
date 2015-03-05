@@ -21,12 +21,15 @@
 
 	String title = req.getParameter("title");
 	String filename = req.getFilesystemName("file");
-	String content = req.getParameter("content");
+	String contents = req.getParameter("contents");
 
 	Photo photo = new Photo();
 	photo.setTitle(title);
 	photo.setWriter("deian");
-	photo.setContents(content);
+	if(contents==null)
+		photo.setContents("");
+	else
+		photo.setContents(contents);
 	
 /* 	if(filename)
 		photo.setFileName(); */

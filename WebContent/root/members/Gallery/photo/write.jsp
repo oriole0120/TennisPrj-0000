@@ -51,22 +51,22 @@
 		                        
 		                        <dt class="hidden">내용</dt>
 		                        <dd class="content newrow">
-		                        	<textarea name="content" id="content" rows="10" cols="100" style="width: 690px; height: 400px; display: none;">
-		                        		본문입력됨?
+		                        	<textarea name="content" id="content-area" rows="10" cols="100" style="width: 690px; height: 400px; display: none;">
+		                        		
 		                        	</textarea>
 		                        	
 				                        	<script type="text/javascript">
 							                    var oEditors = [];
 							                    nhn.husky.EZCreator.createInIFrame({
 							                        oAppRef: oEditors,
-							                        elPlaceHolder: "content",
+							                        elPlaceHolder: "content-area",
 							                        sSkinURI: "../../../editor/SmartEditor2Skin.html",
 							                        htParams : {
 							                    		bUseToolbar : true,				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
 							                    		bUseVerticalResizer : false,		// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
 							                    		bUseModeChanger : false,			// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
 							                    		fOnBeforeUnload : function(){
-							                    			alert("완료!");
+							                    			alert("작성 완료!");
 							                    		}
 							                    	},
 							                    	fOnAppLoad : function(){
@@ -82,20 +82,25 @@
 							                    	
 
 							                    function pasteHTML() {
-							                    	var sHTML = "<span style='color:#FF0000;'>이미지도 같은 방식으로 삽입합니다.<\/span>";
-							                    	oEditors.getById["content"].exec("PASTE_HTML", [sHTML]);
+							                    	var sHTML = document.getElementById("content-area").value;
+							                    	oEditors.getById["content-area"].exec("PASTE_HTML", [sHTML]);
 							                    }
 
 							                    function showHTML() {
-							                    	var sHTML = oEditors.getById["content"].getIR();
+							                    	var sHTML = oEditors.getById["content-area"].getIR();
 							                    	alert(sHTML);
 							                    }
 							                    	
 							                    function submitContents(elClickedObj) {
-							                    	oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
-							                    	
 							                    	// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("ir1").value를 이용해서 처리하면 됩니다.
+							                    	if(!document.getElementById("content-area").value)
+							                    		// 에디터의 내용이 textarea에 적용됩니다.
+							                    		oEditors.getById["content-area"].exec("UPDATE_CONTENTS_FIELD", []);	
 							                    	
+							                    	
+							                    	
+							                    	
+							                    		
 							                    	try {
 							                    		elClickedObj.form.submit();
 							                    	} catch(e) {}
@@ -104,7 +109,7 @@
 							                    function setDefaultFont() {
 							                    	var sDefaultFont = '맑은고딕';
 							                    	var nFontSize = 20;
-							                    	oEditors.getById["content"].setDefaultFont(sDefaultFont, nFontSize);
+							                    	oEditors.getById["content-area"].setDefaultFont(sDefaultFont, nFontSize);
 							                    }
 							                    
 						                	</script>

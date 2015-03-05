@@ -101,6 +101,24 @@
                         </tbody>
                     </table>
                 </div>
+                
+                <form action="list.jsp" method="get">
+                  <fieldset>
+
+                     <legend class="hidden">검색 필드</legend>
+                     <label for="field" class="hidden">검색분류</label> 
+                     <select class="search-field" name="fd">
+                     	<option ${param.fd=='WRITER' ? 'selected' : ""} value="WRITER">작성자</option>
+                        <option ${param.fd=='TITLE' ? 'selected' : ""} value="TITLE">제목</option>
+                        <option ${param.fd=='CONTENTS' ? 'selected' : ""} value="CONTENTS">본문</option>
+                        
+                     </select> 
+                           <input class="input-normal" type="text" name="qy" value=${param.qy }></input>
+                           <input class="btn btn-search" type="submit" value="검색" />
+                  </fieldset>
+               </form>
+               
+               
              </main>
         </div>
     </div>
