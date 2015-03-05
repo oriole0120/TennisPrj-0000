@@ -12,6 +12,7 @@ public class Free {
 	private int hit;
 	private int thumb;
 	private String authority;
+	
 	public String getCode() {
 		return code;
 	}
