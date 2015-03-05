@@ -312,3 +312,9 @@ a.page:first-child
     margin-top:10px;
     padding-left:10px;
 }
+
+.text-highlight
+{
+    font-weight:bold;
+    color:#ff6a00;
+}
