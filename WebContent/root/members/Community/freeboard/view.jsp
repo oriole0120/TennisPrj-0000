@@ -27,11 +27,8 @@
     		btnDelPop.onclick=btnDelPopClick;
     	}
     	function btnDelPopClick(){
-    		if(confirm( '삭제 하시겠습니까?' )){
-    			
-    		}
-    		else{
-    			
+    		if(!confirm( '삭제 하시겠습니까?' )){
+    			return false;
     		}	
     	}
     	window.onload=init;
