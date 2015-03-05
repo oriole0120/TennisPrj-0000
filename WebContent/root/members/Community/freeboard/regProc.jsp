@@ -13,17 +13,22 @@
 	
 <%
 	ServletContext ctx = request.getServletContext();
-	String path = ctx.getRealPath("/root/members/Gallery/upload");
+	String path = ctx.getRealPath("/root/members/Community/freeboard/upload");
 	out.print(path + "<br />");
 
-	MultipartRequest req = new MultipartRequest(request, path, 1024 * 1024 * 10, "UTF-8", new DefaultFileRenamePolicy());
+	MultipartRequest req = new MultipartRequest(request
+							, path
+							, 1024 * 1024 * 10
+							, "UTF-8"
+							, new DefaultFileRenamePolicy());
 
 	String title = req.getParameter("title");
 	String filename = req.getFilesystemName("file");
 	String content = req.getParameter("content");
+	
+	/* out.print(path + "<br />");
 	out.print(path + "<br />");
-	out.print(path + "<br />");
-	out.print(path + "<br />");
+	out.print(path + "<br />"); */
 
 	Free fr = new Free();
 	
@@ -34,8 +39,9 @@
 	/* if(filename)
 		free.setFileName();  */
 
-	SqlSession sqlSession = MyBatisMain.getSqlSessionFactory().openSession(true);
-	FreeDao freeDao = sqlSession.getMapper(FreeDao.class);
+	/* SqlSession sqlSession = MyBatisMain.getSqlSessionFactory().openSession(true); */
+		
+	FreeDao freeDao = new JdbcFreeDao();
 	freeDao.insert(fr);
 
 	 if (req.getFile("file") != null) {
