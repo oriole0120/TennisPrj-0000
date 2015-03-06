@@ -14,6 +14,18 @@
 
     <link href="../css/bind.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../js/modernizr.js"></script>
+    <script>
+    	function init(){
+    		var btnDelPop=document.getElementById("btn-del-pop");
+    		btnDelPop.onclick=btnDelPopClick;
+    	}
+    	function btnDelPopClick(){
+    		if(!confirm( '삭제 하시겠습니까?' )){
+    			return false;
+    		}	
+    	}
+    	window.onload=init;
+    </script>
 </head>
 
 <body>
@@ -87,7 +99,7 @@
                                 </p>
                                 
                                 <p class="space-top-two text-center">    
-                                	<a href="viewDelProc.jsp?c=${inf.code}">삭제</a>
+                                	<a id="btn-del-pop" href="viewDelProc.jsp?c=${inf.code}">삭제</a>
                                 </p>
                                                  
                                 </div>

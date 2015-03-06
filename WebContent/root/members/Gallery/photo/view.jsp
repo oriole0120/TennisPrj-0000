@@ -28,10 +28,10 @@
     <script type="text/javascript" src="../js/modernizr.js"></script>
     <script>
     	function init(){
-    		var btnDelPop=document.getElementById("btn-del");
+    		var btnDel=document.getElementById("btn-del");
     		btnDelPop.onclick=btnDelPopClick;
     	}
-    	function btnDelPopClick(){
+    	function btnDelClick(){
     		if(confirm( '삭제 하시겠습니까?' )){
     			
     		}

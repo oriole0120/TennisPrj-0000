@@ -1,12 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
 	
+		
 	<bean id="photoDao" class="com.htmtennis.prj.dao.mybatis.MyBPhotoDao" />
 	<bean id="view" class="my.spring.PhotoView" >
-			<property name="photoDao"  ref="photoDao"></property>
+			<property name="photoDao"  ref="photoDao" />
 	</bean>
-		
+	
+	<!-- Exam exam = new Exam(); -->	
+	<bean id="exam" class="my.spring.Exam">
+			<!-- 
+				exam.setKor(60);
+				exam.setEng(40);
+				exam.setMath(80);
+			 -->	
+			<property name="kor"  value="60" />
+			<property name="eng"  value="40" />
+			<property name="math">
+					 <value>80</value>
+			</property>
+			
+			<!-- constructor 
+			 constructor-arg index="0"  value="100" /> 
+			 constructor-arg name="kor"  value="100" />		 -->
+			<constructor-arg name="math" type="float" value="40.3" />
+			<constructor-arg name="eng" type="float" value="20" />
+			<constructor-arg name="kor" type="float" value="100" />
+	</bean>	
+	
+	<!--
+			List<Exam> exams = new ArrayList<Exam>();
+			exams.add(new Exam(10, 10, 10));
+			exams.add(new Exam(20, 20, 20));
+			ExamManager mng = new ExamManager();
+			mng.setExams(exams);
+	 -->
+	<bean id="exams" class="java.util.ArrayList">
+			<constructor-arg>
+				<list>
+						<bean class="my.spring.Exam">
+							<constructor-arg value="10" />
+							<constructor-arg value="10" />
+							<constructor-arg value="10" />	
+						</bean>
+					
+						<bean class="my.spring.Exam">
+							<constructor-arg value="20" />
+							<constructor-arg value="20" />
+							<constructor-arg value="20" />
+						</bean>
+					</list>
+			</constructor-arg>
+	</bean>
+	
+	<context:annotation-config />	
+	<bean id="mng" class="my.spring.ExamManager">
+			<!-- <property name="exams" ref="exams" /> -->
+	</bean>
+	 
 </beans>

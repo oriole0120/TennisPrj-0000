@@ -3,7 +3,7 @@
 <%@page import="com.htmtennis.prj.dao.jdbc.JdbcNoticeDao"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+ 
 <%	
 	String _code = request.getParameter("c");
 	Notice n = new JdbcNoticeDao().getNotice(_code);
