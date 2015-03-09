@@ -9,6 +9,38 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+<<<<<<< HEAD
+	<classpathentry kind="lib" path="C:/Users/sist/Documents/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-websocket-4.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Documents/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-webmvc-portlet-4.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Documents/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-webmvc-4.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Documents/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-web-4.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Documents/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-tx-4.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Documents/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-test-4.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Documents/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-oxm-4.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Documents/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-orm-4.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Documents/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-messaging-4.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Documents/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-jms-4.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Documents/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-jdbc-4.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Documents/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-instrument-tomcat-4.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Documents/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-instrument-4.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Documents/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-expression-4.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Documents/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-core-4.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Documents/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-context-support-4.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Documents/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-context-4.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Documents/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-beans-4.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Documents/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-aspects-4.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Documents/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-aop-4.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Downloads/mybatis-3.2.8/mybatis-3.2.8/lib/asm-3.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Downloads/mybatis-3.2.8/mybatis-3.2.8/lib/cglib-2.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Downloads/mybatis-3.2.8/mybatis-3.2.8/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Downloads/mybatis-3.2.8/mybatis-3.2.8/lib/javassist-3.17.1-GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Downloads/mybatis-3.2.8/mybatis-3.2.8/lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Downloads/mybatis-3.2.8/mybatis-3.2.8/lib/log4j-api-2.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Downloads/mybatis-3.2.8/mybatis-3.2.8/lib/log4j-core-2.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Downloads/mybatis-3.2.8/mybatis-3.2.8/lib/slf4j-api-1.7.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Downloads/mybatis-3.2.8/mybatis-3.2.8/lib/slf4j-log4j12-1.7.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sist/Downloads/Microsoft JDBC Driver 4.0 for SQL Server/sqljdbc_4.0/kor/sqljdbc4.jar"/>
+=======
 	<classpathentry kind="lib" path="C:/Users/sist/Desktop/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-websocket-4.1.5.RELEASE.jar"/>
 	<classpathentry kind="lib" path="C:/Users/sist/Desktop/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-webmvc-portlet-4.1.5.RELEASE.jar"/>
 	<classpathentry kind="lib" path="C:/Users/sist/Desktop/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/spring-webmvc-4.1.5.RELEASE.jar"/>
@@ -39,5 +71,9 @@
 	<classpathentry kind="lib" path="C:/Users/sist/Desktop/mybatis-3.2.8/mybatis-3.2.8/lib/log4j-core-2.0.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/sist/Desktop/mybatis-3.2.8/mybatis-3.2.8/lib/slf4j-api-1.7.5.jar"/>
 	<classpathentry kind="lib" path="C:/Users/sist/Desktop/mybatis-3.2.8/mybatis-3.2.8/lib/slf4j-log4j12-1.7.5.jar"/>
+<<<<<<< HEAD
+=======
+>>>>>>> refs/remotes/origin/master
+>>>>>>> refs/remotes/origin/master
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

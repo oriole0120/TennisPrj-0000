@@ -90,7 +90,17 @@
                         <p><a href="write.jsp">글쓰기</a></p>
                     </div>
 
-                    <div>
+
+				<div id="write">
+					<p>
+						<a href="edit.html">글쓰기</a>
+					</p>
+				</div>
+
+
+
+
+				<div>
                         <h3 class="hidden">영상목록부분</h3>
                         <table id="free-board-table">
                             <thead>
